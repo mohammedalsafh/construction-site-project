@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contact Us</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="project_style.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="HomePage.html">Home Page</a> |
+                <a href="about.html">About Us</a> |
+                <a href="log-in.html">Log In</a> |
+                <a href="sign-up.html">Sign Up</a>|
+            </nav>
+        </header>
+        <main>
+            <h1>Contact Us</h1>
+            <form method="post" action="#" novalidate>
+                <div>
+                    <label>
+                        Name:
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Email:
+                        <input type="email" name="Email" placeholder="yourEmail@domain" required>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        subject:
+                        <select name="Subject" required>
+                            <option value="" disabled selected>Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="support">Support</option>
+                            <option value="feedback">Question About Materials</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Message:
+                        <textarea name="Message" placeholder="Your message here..." required rows="5" cols="25"></textarea>
+                    </label>
+                </div>
+                <div>
+                    <button type="submit">Send Message</button>
+                    <button type="reset">Reset</button>
+        </main>
+    </body>
+
+</html>
