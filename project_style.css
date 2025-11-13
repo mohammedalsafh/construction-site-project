@@ -58,14 +58,17 @@ body {
   border-style: groove;
 
 }
-/*styling for the product container*/
+/*styling for the product container justify-content aligns the product in this case in the center , 
+flex-wrap: wrap makes the items go to the next line ,gap =20px to make a gap of 20px between each item*/
 .product-container {
+    position: relative;
     display:flex; 
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 .product-item{
-    width: 200px;
     text-align: center;
-    margin: 10px;
     border : 1px solid;
     padding-bottom: 50px;
     border-radius: 20px;
@@ -73,11 +76,12 @@ body {
     
 }
 .product-item img{
-    width: 100%;
-    display: block;
+    
+    width: 100%;   
     border-radius: 20px;    
     border: 1px solid;
     height: 150px;
+    border: 1px solid #333;  
 }
 
 .product-item h4{
@@ -88,7 +92,7 @@ body {
 fieldset {
     border: 2px solid #c46a25;
     border-radius: 10px;
-    padding: 15px;
+    padding: 10px;
     margin-bottom: 20px;
     border-width: thick;
     border-style: inset;
