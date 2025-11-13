@@ -1,97 +1,205 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Sign Up</title>
 
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="project_style.css">
+<head>
+    <title>Sign Up</title>
 
-        <style>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="project_style.css">
 
-            /* the text that are inside the buttons */
-    nav a {
-        text-decoration: none;   
-        color:black;          
-    }
-    
-    /* the outside look of the links */
-    nav button {
-        padding: 8px 15px;
-        background-color: #cfa382;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    
-    /* when we point the mouse in the link */
-    nav button:hover {
-        background-color: #fffcf9;
-    }
+    <style>
+        /* the text that are inside the buttons */
+        nav a {
+            text-decoration: none;
+            color: black;
+        }
 
-         </style>
+        /* the outside look of the links */
+        nav button {
+            padding: 8px 15px;
+            background-color: #cfa382;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-    </head>
+        /* when we point the mouse in the link */
+        nav button:hover {
+            background-color: #fffcf9;
+        }
 
-    <body>
+        /* a button that takes you to a new page which is store page when we submit our sign up */
+        #storeBtn {
+            display: none;
+            /* we make the button hidden untill we call it from js when we submit */
+            margin-top: 15px;
+            padding: 12px 25px;
+            background-color: #cfa382;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-        <main>
-            <h2 style="color: rgb(2, 1, 1); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:italic;">Create Your Account</h2>
-            <form method="post" action="#" novalidate>
+        /* when we point to the box */
+        #storeBtn:hover {
+            background-color: #fffcf9;
+        }
 
+        #storeBtn a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
 
-                <div>
-                    <label>
-                        Full Name:
-                        <input type="text" name="FullName" placeholder="Your Full Name" required>
-                    </label>
-                </div>
+    <script>
+        function validateForm() {
+            // here we create vars
+            // then assign the value of the specific form and names in the forms to them
+            var name = document.forms["signUpForm"]["FullName"].value;
+            var phone = document.forms["signUpForm"]["PhoneNumber"].value;
+            var mil = document.forms["signUpForm"]["UserE"].value;
+            var pass = document.forms["signUpForm"]["UserP"].value;
 
+            // we see if user didnt enter anything in one of the fields 
+            if (name == "" || phone == "" || mil == "" || pass == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
 
-                <div>
-                    <label>
-                        Phone Number:
-                        <input type="tel" name="PhoneNumber" placeholder="+966-00-000-0000" required>
-                    </label>
-                </div>
+            // we make a rule that we need firstname_lastname and it has to be letters only 
+            /*
+           to undrestand .test and the following 2 lines more, now firstly (name) will have the value that we assigned from above 
+           which is the value of the FullName from the forms, secondly the .test compares both of the of name pattern and the 
+           namepatter var we gave a specific pattern to, then the .test if they match will result true if not will result false
+           if the result was false they dont match the "!" will turn the value to true which will cause entering the if statment
+           and send the alert message  
+            */
+            var namePattern = /^[A-Za-z]+ [A-Za-z]+$/;
+            if (!namePattern.test(name)) {
+                alert("Full Name must contain first and last name separated by one space and has letters only.");
 
+                return false;//if the return was false the function will return false and the onsubmit will not work meaning the form will not submit
+            }
 
-                <div>
-                    <label>
-                        Email:
-                        <input type="email" name="UserE" placeholder="yourEmail@domain" required>
-                    </label>
-                </div>
+            // we check if its the correct pattern 
+            if (!phone.startsWith("966-5")) {
+                alert("Phone Number must start with 966-5");
+                return false;
+            }
 
+            // the email must have @ and can end or start with @ 
+            if (!mil.includes("@") || mil.startsWith("@") || mil.endsWith("@")) {
+                alert("Email must contain a valid @ symbol");
+                return false;
+            }
 
-                <div>
-                    <label>
-                        Password:
-                        <input type="password" name="UserP" placeholder="**********" required>
-                    </label>
-                </div>
+            // we reject if the user enter somthing like r@.com meaning there has to be somthing after the @ and before the .com
+            var atIndex = mil.indexOf("@");
+            if (mil.charAt(atIndex + 1) === ".") {
+                alert("Email cannot have '.' immediately after '@'");
+                return false;
+            }
 
+            // the email must have .somthing 
+            var domainPart = mil.split("@")[1];
+            if (!domainPart.includes(".")) {
+                alert("Email must contain a domain like .com or .sa");
+                return false;
+            }
 
-                <div>
-                    <button type="submit">Sign Up</button>
-                    <button type="reset">Reset</button>
-                    <p>
-                        Already have an account?
-                    </p>
-                      <a href="log-in.html" class="secondary-button">Log In</a>
-                </div>
+            // passowrd cant be less that 8 characters
+            if (pass.length < 8) {
+                alert("Password must be at least 8 characters long");
+                return false;
+            }
 
-                </form>
-        </main>
+            //the password need atleast 1 num
+            var numberPattern = /[0-9]/;
+            if (!numberPattern.test(pass)) {
+                alert("Password must contain at least one number");
+                return false;
+            }
 
-        <br>
-        
-        <!-- nav links that are buttons-->
-        <footer>
-            <nav>
-                <button><a href="HomePage.html">Home Page</a></button> |
-                <button><a href="log-in.html">Project</a> </button>
-            </nav>
-        </footer>
+            //if everything is correct a message will appear
+            alert("Account Created Successfully!");
 
-    </body>
+            //here we make the button appears we call the disply and give it inlin block beacuse
+            //it was display none in the styling 
+            document.getElementById("storeBtn").style.display = "inline-block";
+
+            return false; // this will prevent the page to lose all the info after the user press submit
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <main>
+        <h2 style="color: rgb(2, 1, 1); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:italic;">Create Your Account</h2>
+        <form name="signUpForm" method="post" action="#" onsubmit="return validateForm()">
+
+            <div>
+                <label>
+                    Full Name:
+                    <input type="text" name="FullName" placeholder="folan alfolani" required>
+                </label>
+            </div>
+
+            <!--phone number with a given format-->
+            <div>
+                <label>
+                    Phone Number:
+                    <input type="tel" name="PhoneNumber" placeholder="966-5x-xxx-xxxx"
+                        pattern="966-5[0-9]-[0-9]{3}-[0-9]{4}" required>
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    Email:
+                    <input type="email" name="UserE" placeholder="yourEmail@domain" required>
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    Password:
+                    <input type="password" name="UserP" placeholder="**********" required>
+                </label>
+            </div>
+
+            <div>
+                <input type="submit" value="submit">
+                <input type="reset" value="reset">
+
+                <p>
+                    Already have an account?
+                </p>
+                <a href="log-in.html" class="secondary-button">Log In</a>
+            </div>
+
+        </form>
+
+        <!--a button that will appear after the validation happens and it works-->
+        <button id="storeBtn">
+            <a href="HomePage.html">Go to Store</a>
+        </button>
+
+    </main>
+
+    <br>
+
+    <!-- nav links that are buttons-->
+    <footer>
+        <nav>
+            <button><a href="HomePage.html">Home Page</a></button> |
+            <button><a href="log-in.html">Project</a> </button>
+        </nav>
+    </footer>
+
+</body>
+
 </html>
