@@ -6,11 +6,7 @@
     border-radius: 5px;
     text-decoration: none; 
 }
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    line-height: 1.6;
-}
+
 
 /* the back ground color of all the pages !!!!!!!!!!!!!!*/
 body {
@@ -20,5 +16,45 @@ body {
     background-color: #f5e3cf; 
     text-align: center;
 }
+/* here is the css styling for the filters*/
+.store-filters h3 {
+    border-bottom: 2px solid #f4f4f4;
+    padding-bottom: 10px;
+}
+/* .store-filters ul , the display is set to none to hide the menu*/
+.store-filters ul {
+    display:none; 
+    list-style: none;
+    padding: 0;
+}
 
+.store-filters li {
+    margin-bottom: 1rem;
+}
+
+.store-filters a {
+    text-decoration: none;
+    color: #333;
+}
+/*store-filters a:hover is for the color when user hovers over the filters */
+.store-filters a:hover {
+    color: #007BFF;
+}
+/*store-filters:hover ul displays the drop down menu when user hover over the sidebar*/
+.store-filters:hover ul{
+    display: block;
+}
+
+/*styling for the sidebar*/
+.sidebar {
+  float: left;
+  width: 25%; /* Give it a width (e.g., 30%) */
+  padding: 25;
+  background: #f4f4f4; /* Just to see it */
+  box-sizing: border-box; /* Good practice */
+  border-radius: 25px;
+
+}
  
+
+
