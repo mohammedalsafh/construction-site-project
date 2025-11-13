@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>Log in</title>
+
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="project_style.css">
+
+         <style>
+
+            /* the text that are inside the buttons */
+    nav a {
+        text-decoration: none;   
+        color:black;          
+    }
+    
+    /* the outside look of the links */
+    nav button {
+        padding: 8px 15px;
+        background-color: #cfa382;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    /* when we point the mouse in the link */
+    nav button:hover {
+        background-color: #fffcf9;
+    }
+
+         </style>
+
+    </head>
+
+    <body>
+        
+       <main>
+
+         <h2 style="color: rgb(2, 1, 1); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:italic;">log in please:</h2>
+
+        <form method="post" action="#" form novalidate>
+            <div>
+                <label>
+                    Email: 
+                    <input type="email" name="UserE" placeholder="yourEmail@domain.com" required>
+                </label>
+            </div>
+            <div>
+                <label>
+                    Pasword: 
+                    <input type="password" name="UserP" placeholder="**********" required>
+
+                </label>
+            </div>
+          
+            <input type="submit" value ="Log In" > 
+            <input type="reset" value ="Reset">
+            <input type ="button" value="Forgot Password?">
+            <div>
+             <h3><strong>Don't have an account?</strong></h3>
+                <h4>Sign up here</h4>
+                <a href="sign-up.html" class = "secondary-button" >Sign up</a>
+             </div>  
+
+       </form>
+
+      </main>
+
+      <br>
+
+          <!-- nav links that are buttons-->
+      <footer>
+            <nav>
+                <button><a href="HomePage.html">Home Page</a></button> |
+                <button><a href="contact.html">Contact Us</a></button> |  
+                <button><a href="about.html">About Us</a></button> 
+            </nav>            
+        </footer>
+
+    </body>
+
+</html>

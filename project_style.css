@@ -1,7 +1,7 @@
 .secondary-button {
     background: transparent; 
-    color: #007BFF;       
-    border: 1px solid #007BFF;
+    color: #c46a25;       
+    border: 1px solid #c46a25;
     padding: 6px 15px;
     border-radius: 5px;
     text-decoration: none; 
@@ -20,3 +20,5 @@ body {
     background-color: #f5e3cf; 
     text-align: center;
 }
+
+ 

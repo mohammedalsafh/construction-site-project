@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign Up</title>
+
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="project_style.css">
+
+        <style>
+
+            /* the text that are inside the buttons */
+    nav a {
+        text-decoration: none;   
+        color:black;          
+    }
+    
+    /* the outside look of the links */
+    nav button {
+        padding: 8px 15px;
+        background-color: #cfa382;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    /* when we point the mouse in the link */
+    nav button:hover {
+        background-color: #fffcf9;
+    }
+
+         </style>
+
+    </head>
+
+    <body>
+
+        <main>
+            <h2 style="color: rgb(2, 1, 1); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:italic;">Create Your Account</h2>
+            <form method="post" action="#" novalidate>
+
+
+                <div>
+                    <label>
+                        Full Name:
+                        <input type="text" name="FullName" placeholder="Your Full Name" required>
+                    </label>
+                </div>
+
+
+                <div>
+                    <label>
+                        Phone Number:
+                        <input type="tel" name="PhoneNumber" placeholder="+966-00-000-0000" required>
+                    </label>
+                </div>
+
+
+                <div>
+                    <label>
+                        Email:
+                        <input type="email" name="UserE" placeholder="yourEmail@domain" required>
+                    </label>
+                </div>
+
+
+                <div>
+                    <label>
+                        Password:
+                        <input type="password" name="UserP" placeholder="**********" required>
+                    </label>
+                </div>
+
+
+                <div>
+                    <button type="submit">Sign Up</button>
+                    <button type="reset">Reset</button>
+                    <p>
+                        Already have an account?
+                    </p>
+                      <a href="log-in.html" class="secondary-button">Log In</a>
+                </div>
+
+                </form>
+        </main>
+
+        <br>
+        
+        <!-- nav links that are buttons-->
+        <footer>
+            <nav>
+                <button><a href="HomePage.html">Home Page</a></button> |
+                <button><a href="log-in.html">Project</a> </button>
+            </nav>
+        </footer>
+
+    </body>
+</html>
