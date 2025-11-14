@@ -11,6 +11,12 @@
             font-size: 28px;
             font-family: 'Courier New', Courier, monospace;
         }
+         header div{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;       
+            padding: 10px;
+        }
        </style>
     </head>
     <body>
@@ -23,6 +29,12 @@
             <button><a href= "sign-up.html">Sign Up</a></button> |
             <button><a href= "storePage.html">Store</a></button>
              </nav>
+             <!--shopping cart img with the defined css class-->
+            <a href="Cart.html">
+             <img src="shoppingCart.png" class="shopping-cart">
+             <!--span used as a counter for the items in the shoping cart-->
+             <span class="countItems">0</span> 
+            </a>
             </div>
         </header>
         <br>
@@ -38,6 +50,8 @@
                     <li><a href="ready-rooms.html">Ready-Made Rooms</a></li>
                     <li><a href="electronics.html">Electronics</a></li>
                     <li><a href="smartHome.html">Smart-Home Equipment</a></li>
+                    <li><a href="Services.html">Services</a></li>
+
                 </ul>               
                 </aside>
             </div>
@@ -51,28 +65,24 @@
                         <img src="livingRoom.jpg" alt="Living room picture">
                         <h4> Modern Living Room Set</h4>
                         <p> 4999.99SR</p>
-                        <input type="number" min="1" max="5" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                         <img src="bedroom.jpeg" alt="Bedroom picture">
                         <h4> Cozy Bedroom Set</h4>
                         <p> 3999.99SR </p>
-                        <input type="number" min="1" max="5" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                         <img src="kitchen.avif" alt="Kitchen picture">
                         <h4> Contemporary Kitchen Set</h4>
                         <p> 5999.99SR </p>
-                        <input type="number" min="1" max="5" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                         <img src="bathroom.avif">
                         <h4> Elegant Bathroom Set</h4>
                         <p> 2999.99SR </p>
-                        <input type="number" min="1" max="5" value="1">
                         <button>Add to Cart</button>
                     </div>
                 </div>
