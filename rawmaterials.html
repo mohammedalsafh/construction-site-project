@@ -11,6 +11,12 @@
             font-size: 28px;
             font-family: 'Courier New', Courier, monospace;
         }
+        header div{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;       
+            padding: 10px;
+        }
        </style>
     </head>
     <body>
@@ -22,7 +28,11 @@
             <button><a href= "log-in.html">Log In</a></button> |
             <button><a href= "sign-up.html">Sign Up</a></button> |
             <button><a href= "storePage.html">Store</a></button>
-             </nav>
+            </nav>
+            <!--shopping cart img with the defined css class-->
+            <img src="shoppingCart.png" class="shopping-cart">
+            <!--span used as a counter for the items in the shoping cart-->
+            <span class="countItems">0</span> 
             </div>
         </header>
         <br>
@@ -34,6 +44,7 @@
                 <h3>Categories</h3>              
                 <ul>
                      <!--links to the other categories-->
+                     <li><a href="storePage.html">All Products</a></li>
                     <li><a href="rawmaterials.html">Raw Materials</a></li>
                     <li><a href="ready-rooms.html">Ready-Made Rooms</a></li>
                     <li><a href="electronics.html">Electronics</a></li>
@@ -51,25 +62,23 @@
                         <img src="cement.jpeg" alt="Cement picture">
                         <h4> Premium Cement (50kg)</h4>
                         <p> 12.99SR</p>
-                        <input type="number" min="1" max="100" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                         <img src="red-bricks.jpg" alt="Red bricks picture">
                         <h4> Red Bricks (per piece)</h4>
                         <p> 0.75SR </p>  
-                        <input type="number" min="1" max="1000" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                         <img src="steelbar.jpg" alt="Steel bar picture">
                         <h4> Steel Bar </h4>
                         <p>200SR</p>
-                        <input type="number" min="1" max="100" value="1">
                         <button>Add to Cart</button>
                     </div>
                 
                 </div>
+                </fieldset>
             </section>
 
         </main>

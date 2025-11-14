@@ -11,6 +11,12 @@
             font-size: 28px;
             font-family: 'Courier New', Courier, monospace;
         }
+        header div{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;       
+            padding: 10px;
+        }
        </style>
     </head>
     <body>
@@ -23,6 +29,9 @@
             <button><a href= "sign-up.html">Sign Up</a></button> |
             <button><a href= "storePage.html">Store</a></button>
              </nav>
+             <img src="shoppingCart.png" class="shopping-cart">
+             <span class="countItems">0</span> 
+                        
             </div>
         </header>
         <br>
@@ -34,12 +43,14 @@
                 <h3>Categories</h3>              
                 <!--links to the other categories-->
                 <ul>
+                    <li><a href="storePage.html">All Products</a></li>
                     <li><a href="rawmaterials.html">Raw Materials</a></li>
                     <li><a href="ready-rooms.html">Ready-Made Rooms</a></li>
                     <li><a href="electronics.html">Electronics</a></li>
                     <li><a href="smartHome.html">Smart-Home Equipment</a></li>
                 </ul>               
                 </aside>
+
             </div>
             <section>
                <fieldset>
@@ -51,31 +62,28 @@
                         <img src="smart speakers.jpg" alt="smart speakers picture">
                         <h4> Smart Speakers</h4>
                         <p> 100SR</p>
-                        <input type="number" min="1" max="100" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                         <img src="Led.jpg" alt="smart lights picture">
                         <h4> Smart LED Lights</h4>
                         <p> 75SR </p>
-                        <input type="number" min="1" max="100" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                        <img src="smartDoorKnob.jpg" alt="Smart doorknob picture">
                         <h4> Smart Door Knob</h4>
                         <p> 250SR </p>
-                        <input type="number" min="1" max="10" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                         <img src="intercom.webp" alt="Smart intercom picture">
                         <h4> Smart Intercom System</h4>
                         <p> 300SR </p>
-                        <input type="number" min="1" max="10" value="1">
                         <button>Add to Cart</button>
                     </div>
                 </div>
+               </fieldset>
             </section>
 
         </main>

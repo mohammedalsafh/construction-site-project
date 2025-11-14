@@ -6,7 +6,14 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="project_style.css">
         
-    
+     <style>
+        header div{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;       
+            padding: 10px;
+        }
+     </style>
     </head>
 
 
@@ -26,6 +33,11 @@
             <button><a href= "sign-up.html">Sign Up</a></button> |
             <button><a href= "storePage.html">Store</a></button>
              </nav>
+                      
+            <img src="shoppingCart.png" class="shopping-cart">
+             <span class="countItems">0</span> 
+                        
+
             </div>
         </header>
         <br>
@@ -36,7 +48,8 @@
                 <aside class="store-filters">
                 <h3>Categories</h3>              
                 <ul>
-                      <!--links to the other categories-->
+                      <!--links to the other categories-->                     
+                    <li><a href="storePage.html">All Products</a></li>
                     <li><a href="rawmaterials.html">Raw Materials</a></li>
                     <li><a href="ready-rooms.html">Ready-Made Rooms</a></li>
                     <li><a href="electronics.html">Electronics</a></li>
@@ -48,109 +61,97 @@
                <fieldset>
                 <legend><h2>All Products</h2></legend>
                 <!--this section has a div(product-container) which is the parent of the div which has the product items-->
-                <!--all products are listed here however throught the dropdown menu certain product categories can be selected-->
+                <!--all products are listed here however through the dropdown menu certain product categories can be selected-->
                 <div class="product-container">
+                   
                     <div class="product-item">
                         <img src="cement.jpeg">
                         <h4> Premium Cement (50kg)</h4>
                         <p> 12.99SR</p>
-                        <input type="number" min="1" max="100" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                         <img src="red-bricks.jpg">
                         <h4> Red Bricks (per piece)</h4>
                         <p> 0.75SR </p>  
-                        <input type="number" min="1" max="1000" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                         <img src="steelbar.jpg">
                         <h4> Steel Bar </h4>
                         <p>200SR</p>
-                        <input type="number" min="1" max="100" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <br>
-                    <div class="product-container">
+                    
                     <div class="product-item">
                         <img src="livingRoom.jpg" alt="Living room picture">
                         <h4> Modern Living Room Set</h4>
                         <p> 4999.99SR</p>
-                        <input type="number" min="1" max="5" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                         <img src="bedroom.jpeg" alt="Bedroom picture">
                         <h4> Cozy Bedroom Set</h4>
                         <p> 3999.99SR </p>
-                        <input type="number" min="1" max="5" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                         <img src="kitchen.avif" alt="Kitchen picture">
                         <h4> Contemporary Kitchen Set</h4>
                         <p> 5999.99SR </p>
-                        <input type="number" min="1" max="5" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                         <img src="bathroom.avif">
                         <h4> Elegant Bathroom Set</h4>
                         <p> 2999.99SR </p>
-                        <input type="number" min="1" max="5" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                         <img src="conduits.jpg" alt="Electrical conduits">
                         <h4> Electrical Conduits (per meter)</h4>
                         <p> 5.50SR </p>  
-                        <input type="number" min="1" max="1000" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                         <img src="fusebox.jpg" alt="Fuse box">
                         <h4> Fuse Box</h4>
                         <p> 299.99SR </p>
-                        <input type="number" min="1" max="100" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                        <img src="wiring.jpg" alt="Electrical wiring rolls">
                         <h4> Electrical Wiring Roll (100m)</h4>
                         <p> 149.99SR </p>  
-                        <input type="number" min="1" max="500" value="1">
                         <button>Add to Cart</button>
                     </div>
                       <div class="product-item">
                         <img src="smart speakers.jpg" alt="smart speakers picture">
                         <h4> Smart Speakers</h4>
                         <p> 100SR</p>
-                        <input type="number" min="1" max="100" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                         <img src="Led.jpg" alt="smart lights picture">
                         <h4> Smart LED Lights</h4>
                         <p> 75SR </p>
-                        <input type="number" min="1" max="100" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                        <img src="smartDoorKnob.jpg" alt="Smart doorknob picture">
                         <h4> Smart Door Knob</h4>
                         <p> 250SR </p>
-                        <input type="number" min="1" max="10" value="1">
                         <button>Add to Cart</button>
                     </div>
                     <div class="product-item">
                         <img src="intercom.webp" alt="Smart intercom picture">
                         <h4> Smart Intercom System</h4>
                         <p> 300SR </p>
-                        <input type="number" min="1" max="10" value="1">
                         <button>Add to Cart</button>
                     </div>
                     </div>
+                </fieldset>
             </section>
 
         </main>
