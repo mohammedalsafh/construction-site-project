@@ -186,4 +186,22 @@ nav a {
         font-size: 1.1em;
     }
 
+    .social-icons {
+    margin-top: 15px;
+    text-align: center;
+    text-decoration: none;
+}
+.social-icons a {
+    text-decoration: none;
+}
+
+.icon-img {
+    width: 45px;
+    height: 45px;
+    margin: 50 5px;
+    cursor: pointer;
+}
+
+
+
   
