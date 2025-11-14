@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Store - Products</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="project_style.css">
+        
+     <style>
+        header div{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;       
+            padding: 10px;
+        }
+     </style>
+    <script src="scripts.js"></script>
+    </head>
+
+
+
+
+
+
+
+
+    <body>
+        <header> 
+            <div>
+            <nav>
+                <!--pages at the top of the store page-->
+            <button><a href= "HomePage.html">Home Page</a></button>  |          
+            <button><a href= "log-in.html">Log In</a></button> |
+            <button><a href= "sign-up.html">Sign Up</a></button> |
+            <button><a href= "storePage.html">Store</a></button>
+             </nav>
+             <!--shopping cart img with the defined css class-->
+            
+            </div>
+        </header>
+        <br>
+        <main >
+            <!--class sidebar defines the side bar for the dropdown menu-->
+            <div class="sidebar">
+                <nav>
+                    <button onclick="showPage('store-section')">Show Store</button>
+                    <button onclick="showPage('cart-section')">Show Cart</button>
+                </nav>
+                <!--store filters has the filters of the products we will display (like a shortcut for users looking for a specific product)-->
+                <aside class="store-filters">
+                <h3>Categories</h3>              
+                <ul>
+                                           
+                    <li><a onclick="filterProducts('all')">All Products</a></li>
+                    <li><a onclick="filterProducts('raw-materials')">Raw Materials</a></li>
+                    <li><a onclick="filterProducts('ready-made')">Ready-Made Rooms</a></li>
+                    <li><a onclick="filterProducts('electronics')">Electronics</a></li>
+                    <li><a onclick="filterProducts('smart-home')">Smart-Home Equipment</a></li>
+                    <li><a href="Services.html">Services</a></li>
+                </ul>               
+                </aside>
+            </div>
+            
+               <fieldset>
+                
+               <section id="store-section">
+                
+                <div class="store-layout" >
+                <!--this section has a div(product-container) which is the parent of the div which has the product items-->
+                <!--all products are listed here however through the dropdown menu certain product categories can be selected-->
+                  <div class="product-container">
+
+                    <div class="product-item raw-materials">
+                        <img src="cement.jpeg">
+                        <h4> Premium Cement (50kg)</h4>
+                        <p> 12.99SR</p>
+                        <button onclick="addToCart('prod-cement','Premium Cement (50kg)' , 12.99,'cement.jpeg')">Add to Cart</button>
+                    </div>
+                    <div class="product-item raw-materials">
+                        <img src="red-bricks.jpg">
+                        <h4> Red Bricks (per piece)</h4>
+                        <p> 0.75SR </p>  
+                        <button onclick="addToCart('prod-bricks', 'Red Bricks (per piece)', 0.75,'red-bricks.jpg')">Add to Cart</button>
+                    </div>
+                    <div class="product-item raw-materials">
+                        <img src="steelbar.jpg">
+                        <h4> Steel Bar </h4>
+                        <p>200SR</p>
+                        <button onclick="addToCart('prod-steel','Steel Bar',200,'steelbar.jpg')">Add to Cart</button>
+                    </div>
+                    
+                <!------------------------------------------------------------------------------------------------------------->
+                    <div class="product-item ready-made">
+                        <img src="livingRoom.jpg" alt="Living room picture">
+                        <h4> Modern Living Room Set</h4>
+                        <p> 4999.99SR</p>
+                        <button onclick="addToCart('prod-livingroom', 'Modern Living Room Set', 4999.99,'livingRoom.jpg')">Add to Cart</button>
+                    </div>
+                    <div class="product-item ready-made">
+                        <img src="bedroom.jpeg" alt="Bedroom picture">
+                        <h4> Cozy Bedroom Set</h4>
+                        <p> 3999.99SR </p>
+                        <button onclick="addToCart('prod-bedroom','Cozy Bedroom Set',3999.99,'bedroom.jpeg')">Add to Cart</button>
+                    </div>
+                    <div class="product-item ready-made">
+                        <img src="kitchen.avif" alt="Kitchen picture">
+                        <h4> Contemporary Kitchen Set</h4>
+                        <p> 5999.99SR </p>
+                        <button onclick="addToCart('prod-kitchen','Contemporary Kitchen Set',5999.99,'kitchen.avif')">Add to Cart</button>
+                    </div>
+                    <div class="product-item ready-made">
+                        <img src="bathroom.avif">
+                        <h4> Elegant Bathroom Set</h4>
+                        <p> 2999.99SR </p>
+                        <button onclick="addToCart('prod-bathroom','Elegant Bathroom Set',2999.99,'bathroom.avif')">Add to Cart</button>
+                    </div>
+                <!--------------------------------------------------------------------------------------------------------------->
+                    <div class="product-item electronics">
+                        <img src="conduits.jpg" alt="Electrical conduits">
+                        <h4> Electrical Conduits (per meter)</h4>
+                        <p> 5.50SR </p>  
+                        <button onclick="addToCart('prod-conduit', 'Electrical Conduits (per meter)',5.50,'conduits.jpg')">Add to Cart</button>
+                    </div>
+                    <div class="product-item electronics">
+                        <img src="fusebox.jpg" alt="Fuse box">
+                        <h4> Fuse Box</h4>
+                        <p> 299.99SR </p>
+                        <button onclick="addToCart('prod-fusebox','Fuse Box',299.99,'fusebox.jpg')">Add to Cart</button>
+                    </div>
+                    <div class="product-item electronics">
+                       <img src="wiring.jpg" alt="Electrical wiring rolls">
+                        <h4> Electrical Wiring Roll (100m)</h4>
+                        <p> 149.99SR </p>  
+                        <button onclick="addToCart('prod-wiring', 'Electrical Wiring Roll',149.99,'wiring.jpg')">Add to Cart</button>
+                    </div>
+                <!--------------------------------------------------------------------------------------------------------------->
+                      <div class="product-item smart-home">
+                        <img src="smart speakers.jpg" alt="smart speakers picture">
+                        <h4> Smart Speakers</h4>
+                        <p> 100SR</p>
+                        <button onclick="addToCart('prod-speaker', 'Smart Speakers',100,'smart speakers.jpg')">Add to Cart</button>
+                    </div>
+                    <div class="product-item smart-home">
+                        <img src="Led.jpg" alt="smart lights picture">
+                        <h4> Smart LED Lights</h4>
+                        <p> 75SR </p>
+                        <button onclick="addToCart('prod-led', 'Smart LED Lights',75,'Led.jpg')">Add to Cart</button>
+                    </div>
+                    <div class="product-item smart-home">
+                       <img src="smartDoorKnob.jpg" alt="Smart doorknob picture">
+                        <h4> Smart Door Knob</h4>
+                        <p> 250SR </p>
+                        <button onclick="addToCart('prod-knob','Smart Door Knob',250,'smartDoorKnob.jpg')">Add to Cart</button>
+                    </div>
+                    <div class="product-item smart-home">
+                        <img src="intercom.webp" alt="Smart intercom picture">
+                        <h4> Smart Intercom System</h4>
+                        <p> 300SR </p>
+                        <button onclick="addToCart('prod-intercom', 'Smart Intercom System',300,'intercom.webp')">Add to Cart</button>
+                    </div>
+                     
+                    </div>
+                </div>
+                </section>
+
+
+                <div id="cart-section" style="display: none;">
+                     <h2>Your Shopping Cart</h2>
+      
+                        <table class="cart">
+                            <thead>
+                                 <tr>
+                                   
+                                    <th>Product Image</th>
+                                    <th>Product Name</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody id="cart-body">
+                                 
+                            </tbody>
+                            <tfoot id="cart-foot">
+                                
+                            </tfoot>
+                        </table>
+               </div>
+                </fieldset>
+                
+
+        </main>
+
+    </body>
+
+
+    <footer>
+        <div>
+        <nav>
+        <button><a href= "about.html">About Us</a></button>  |
+        <button><a href= "contact.html">Contact Us</a></button> |
+        </nav>
+        </div>
+    </footer>
+
+
+</html>
