@@ -155,4 +155,35 @@ nav a {
         z-index: 1;
     }
 
+     /*styling for the cart table*/
+    .cart table{
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 1em;
+        font-family: Arial, sans-serif;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }  
+    .cart img{
+        width: 80px;;
+        height: auto;
+        border-radius: 4px;
+    }
+    .cart tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+    .cart tbody tr{
+        border-bottom: 1px solid black;
+    }
+    .cart tbody tr:hover{
+        background-color: #cfb291;
+        cursor:pointer
+    }
+    .total{
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+
   
