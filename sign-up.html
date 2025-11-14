@@ -6,6 +6,7 @@
 
     <meta charset="UTF-8">
     <link rel="stylesheet" href="project_style.css">
+    <script src="scripts.js"></script>
 
     <style>
         /* the text that are inside the buttons */
@@ -21,7 +22,6 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            
         }
 
         /* when we point the mouse in the link */
@@ -38,7 +38,6 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            
         }
 
         /* when we point to the box */
@@ -79,52 +78,26 @@
             */
             var namePattern = /^[A-Za-z]+ [A-Za-z]+$/;
             if (!namePattern.test(name)) {
-                alert("Full Name must contain first and last name separated by one space and has letters only.");
+                alert("accepts only letter and the full name need to have the first and last name and between them 1 empty space.");
 
                 return false;//if the return was false the function will return false and the onsubmit will not work meaning the form will not submit
             }
 
             // we check if its the correct pattern 
             if (!phone.startsWith("966-5")) {
-                alert("Phone Number must start with 966-5");
+                alert("the phone number need to start with 966-5");
                 return false;
             }
-
-            // the email must have @ and can end or start with @ 
-            if (!mil.includes("@") || mil.startsWith("@") || mil.endsWith("@")) {
-                alert("Email must contain a valid @ symbol");
-                return false;
-            }
-
-            // we reject if the user enter somthing like r@.com meaning there has to be somthing after the @ and before the .com
-            var atIndex = mil.indexOf("@");
-            if (mil.charAt(atIndex + 1) === ".") {
-                alert("Email cannot have '.' immediately after '@'");
-                return false;
-            }
-
-            // the email must have .somthing 
-            var domainPart = mil.split("@")[1];
-            if (!domainPart.includes(".")) {
-                alert("Email must contain a domain like .com or .sa");
-                return false;
-            }
-
-            // passowrd cant be less that 8 characters
-            if (pass.length < 8) {
-                alert("Password must be at least 8 characters long");
-                return false;
-            }
-
-            //the password need atleast 1 num
-            var numberPattern = /[0-9]/;
-            if (!numberPattern.test(pass)) {
-                alert("Password must contain at least one number");
-                return false;
-            }
+            
+            //here we call the functions that are in the 
+            //external scripts file and pass it the var that 
+            //we defined on top if its not the right validation
+            //it will not submit form
+            if (!validateEmail(mil)) return false;
+            if (!validatePassword(pass)) return false;
 
             //if everything is correct a message will appear
-            alert("Account Created Successfully!");
+            alert("account is created succsessfully");
 
             //here we make the button appears we call the disply and give it inlin block beacuse
             //it was display none in the styling 
@@ -136,8 +109,16 @@
 
 </head>
 
+    
 <body>
 
+    <!-- Project Logo (Bottom-Right) -->
+    <img src="logo.png" usemap="#projectmap" class="project-logo">
+    <map name="projectmap">
+    <!-- Rectangle that covers entire logo -->
+    <area shape="rect" coords="0,0,200,200" href="about.html" alt="about.html">
+    </map>
+    
     <main>
         <h2 style="color: rgb(2, 1, 1); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:italic;">Create Your Account</h2>
         <form name="signUpForm" method="post" action="#" onsubmit="return validateForm()">

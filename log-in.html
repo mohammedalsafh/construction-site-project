@@ -6,6 +6,7 @@
 
     <meta charset="UTF-8">
     <link rel="stylesheet" href="project_style.css">
+    <script src="scripts.js"></script>
 
     <style>
         /* the text that are inside the buttons */
@@ -56,50 +57,24 @@
         function validateLogin() {
             // here we create vars
             // then assign the value of the specific form and names in the forms to them
-            var email = document.forms["loginForm"]["UserE"].value;
+            var mail = document.forms["loginForm"]["UserE"].value;
             var pass = document.forms["loginForm"]["UserP"].value;
 
             // we see if user didnt enter anything in one of the fields 
-            if (email == "" || pass == "") {
+            if (mail == "" || pass == "") {
                 alert("All fields must be filled out");
                 return false;
             }
-
-            // the email must have @ and can end or start with @ 
-            if (!email.includes("@") || email.startsWith("@") || email.endsWith("@")) {
-                alert("Email must contain a valid @ symbol");
-                return false;
-            }
-
-            // we reject if the user enter somthing like r@.com meaning there has to be somthing after the @ and before the .com
-            var atIndex = email.indexOf("@");
-            if (email.charAt(atIndex + 1) === ".") {
-                alert("Email cannot have '.' immediately after '@'");
-                return false;
-            }
-
-            // the email must have .somthing 
-            var domainPart = email.split("@")[1];
-            if (!domainPart.includes(".")) {
-                alert("Email must contain a domain like .com or .sa");
-                return false;
-            }
-
-            // passowrd cant be less that 8 characters
-            if (pass.length < 8) {
-                alert("Password must be at least 8 characters long");
-                return false;
-            }
-
-            //the password need atleast 1 num
-            var numberPattern = /[0-9]/;
-            if (!numberPattern.test(pass)) {
-                alert("Password must contain at least one number");
-                return false;
-            }
+ 
+            //here we call the functions that are in the 
+            //external scripts file and pass it the var that 
+            //we defined on top if its not the right validation
+            //it will not submit form
+            if (!validateEmail(mail)) return false;
+            if (!validatePassword(pass)) return false;
 
             //if everything is correct a message will appear
-            alert("Login Successful!");
+            alert("login is successful");
 
             //here we make the button appears we call the disply and give it inlin block beacuse
             //it was display none in the styling 
@@ -111,7 +86,15 @@
 
 </head>
 
+
 <body>
+
+    <!-- Project Logo (Bottom-Right) -->
+    <img src="logo.png" usemap="#projectmap" class="project-logo">
+    <map name="projectmap">
+    <!-- Rectangle that covers entire logo -->
+    <area shape="rect" coords="0,0,200,200" href="about.html" alt="about.html">
+    </map>
 
     <main>
 

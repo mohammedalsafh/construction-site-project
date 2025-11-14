@@ -14,6 +14,7 @@
             padding: 10px;
         }
      </style>
+    <script src="scripts.js"></script>
     </head>
 
 
@@ -23,138 +24,233 @@
 
 
 
-    <body>
+    <body id="top">
+        
+ <img src="logo.png" usemap="#projectmap" class="project-logo">
+    <map name="projectmap">
+        <area shape="rect" coords="0,0,200,200" href="about.html" alt="about.html">
+    </map>
+
         <header> 
             <div>
             <nav>
-                <!--pages at the top of the store page-->
-            <button><a href= "HomePage.html">Home Page</a></button>  |          
-            <button><a href= "log-in.html">Log In</a></button> |
-            <button><a href= "sign-up.html">Sign Up</a></button> |
-            <button><a href= "storePage.html">Store</a></button>
+                <button><a href= "HomePage.html">Home Page</a></button>  |          
+                <button><a href= "log-in.html">Log In</a></button> |
+                <button><a href= "sign-up.html">Sign Up</a></button> |
+                <button><a href= "storePage.html">Store</a></button> |
+                <button><a href="#commentsSection" class="btn">Go to Comments</a></button>
              </nav>
-             <!--shopping cart img with the defined css class-->
-            <a href="Cart.html">
-             <img src="shoppingCart.png" class="shopping-cart">
-             <!--span used as a counter for the items in the shoping cart-->
-             <span class="countItems">0</span> 
-            </a>
-            </div>
+             </div>
         </header>
         <br>
-        <main>
-            <!--class sidebar defines the side bar for the dropdown menu-->
+        <main >
             <div class="sidebar">
-                <!--store filters has the filters of the products we will display (like a shortcut for users looking for a specific product)-->
+                <nav>
+                    <button onclick="showPage('store-section')">Show Store</button>
+                    <button onclick="showPage('cart-section')">Show Cart</button>
+                </nav>
                 <aside class="store-filters">
                 <h3>Categories</h3>              
                 <ul>
-                      <!--links to the other categories-->                     
-                    <li><a href="storePage.html">All Products</a></li>
-                    <li><a href="rawmaterials.html">Raw Materials</a></li>
-                    <li><a href="ready-rooms.html">Ready-Made Rooms</a></li>
-                    <li><a href="electronics.html">Electronics</a></li>
-                    <li><a href="smartHome.html">Smart-Home Equipment</a></li>
+                                           
+                    <li><a onclick="filterProducts('all')">All Products</a></li>
+                    <li><a onclick="filterProducts('raw-materials')">Raw Materials</a></li>
+                    <li><a onclick="filterProducts('ready-made')">Ready-Made Rooms</a></li>
+                    <li><a onclick="filterProducts('electronics')">Electronics</a></li>
+                    <li><a onclick="filterProducts('smart-home')">Smart-Home Equipment</a></li>
                     <li><a href="Services.html">Services</a></li>
                 </ul>               
                 </aside>
             </div>
-            <section>
+            
                <fieldset>
-                <legend><h2>All Products</h2></legend>
-                <!--this section has a div(product-container) which is the parent of the div which has the product items-->
-                <!--all products are listed here however through the dropdown menu certain product categories can be selected-->
+                
+               <section id="store-section">
+                
+                <div class="store-layout" >
                 <div class="product-container">
-                   
-                    <div class="product-item">
-                        <img src="cement.jpeg">
+
+                    <div class="product-item raw-materials">
+                        <img src="cement.jpeg" id="product-img-1">
                         <h4> Premium Cement (50kg)</h4>
                         <p> 12.99SR</p>
-                        <button>Add to Cart</button>
+                        <div class="image-options">
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-1', 'cement.jpeg')"> View 1</button>
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-1', 'cement2.jpg')"> View 2</button>
+                        </div>
+                        <button onclick="addToCart('prod-cement','Premium Cement (50kg)' , 12.99,'cement.jpeg')">Add to Cart</button>
                     </div>
-                    <div class="product-item">
-                        <img src="red-bricks.jpg">
+                    
+                    <div class="product-item raw-materials">
+                        <img src="red-bricks.jpg" id="product-img-2">
                         <h4> Red Bricks (per piece)</h4>
-                        <p> 0.75SR </p>  
-                        <button>Add to Cart</button>
+                        <p> 0.75SR </p>
+                        <div class="image-options">
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-2', 'red-bricks.jpg')"> View 1</button>
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-2', 'brick2.jpg')"> View 2</button>
+                        </div>
+                        <button onclick="addToCart('prod-bricks', 'Red Bricks (per piece)', 0.75,'red-bricks.jpg')">Add to Cart</button>
                     </div>
-                    <div class="product-item">
-                        <img src="steelbar.jpg">
+                    
+                    <div class="product-item raw-materials">
+                        <img src="steelbar.jpg" id="product-img-3">
                         <h4> Steel Bar </h4>
                         <p>200SR</p>
-                        <button>Add to Cart</button>
+                        <div class="image-options">
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-3', 'steelbar.jpg')"> View 1</button>
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-3', 'steel2.webp')"> View 2</button>
+                        </div>
+                        <button onclick="addToCart('prod-steel','Steel Bar',200,'steelbar.jpg')">Add to Cart</button>
                     </div>
-                    <br>
                     
-                    <div class="product-item">
-                        <img src="livingRoom.jpg" alt="Living room picture">
+                <div class="product-item ready-made">
+                        <img src="livingRoom.jpg" alt="Living room picture" id="product-img-4">
                         <h4> Modern Living Room Set</h4>
                         <p> 4999.99SR</p>
-                        <button>Add to Cart</button>
+                        <div class="image-options">
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-4', 'livingRoom.jpg')"> View 1</button>
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-4', 'living2.jpeg')"> View 2</button>
+                        </div>
+                        <button onclick="addToCart('prod-livingroom', 'Modern Living Room Set', 4999.99,'livingRoom.jpg')">Add to Cart</button>
                     </div>
-                    <div class="product-item">
-                        <img src="bedroom.jpeg" alt="Bedroom picture">
+                    
+                    <div class="product-item ready-made">
+                        <img src="bedroom.jpeg" alt="Bedroom picture" id="product-img-5">
                         <h4> Cozy Bedroom Set</h4>
                         <p> 3999.99SR </p>
-                        <button>Add to Cart</button>
+                        <div class="image-options">
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-5', 'bedroom.jpeg')"> View 1</button>
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-5', 'bed2.jpg')"> View 2</button>
+                        </div>
+                        <button onclick="addToCart('prod-bedroom','Cozy Bedroom Set',3999.99,'bedroom.jpeg')">Add to Cart</button>
                     </div>
-                    <div class="product-item">
-                        <img src="kitchen.avif" alt="Kitchen picture">
+                    
+                    <div class="product-item ready-made">
+                        <img src="kitchen.avif" alt="Kitchen picture" id="product-img-6">
                         <h4> Contemporary Kitchen Set</h4>
                         <p> 5999.99SR </p>
-                        <button>Add to Cart</button>
+                        <div class="image-options">
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-6', 'kitchen.avif')"> View 1</button>
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-6', 'kitchen2.jpg')"> View 2</button>
+                        </div>
+                        <button onclick="addToCart('prod-kitchen','Contemporary Kitchen Set',5999.99,'kitchen.avif')">Add to Cart</button>
                     </div>
-                    <div class="product-item">
-                        <img src="bathroom.avif">
+                    
+                    <div class="product-item ready-made">
+                        <img src="bathroom.avif" id="product-img-7">
                         <h4> Elegant Bathroom Set</h4>
                         <p> 2999.99SR </p>
-                        <button>Add to Cart</button>
+                        <div class="image-options">
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-7', 'bathroom.avif')"> View 1</button>
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-7', 'bath2.webp')"> View 2</button>
+                        </div>
+                        <button onclick="addToCart('prod-bathroom','Elegant Bathroom Set',2999.99,'bathroom.avif')">Add to Cart</button>
                     </div>
-                    <div class="product-item">
-                        <img src="conduits.jpg" alt="Electrical conduits">
+                <div class="product-item electronics">
+                        <img src="conduits.jpg" alt="Electrical conduits" id="product-img-8">
                         <h4> Electrical Conduits (per meter)</h4>
-                        <p> 5.50SR </p>  
-                        <button>Add to Cart</button>
+                        <p> 5.50SR </p>
+                        <div class="image-options">
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-8', 'conduits.jpg')"> View 1</button>
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-8', 'elec2.webp')"> View 2</button>
+                        </div>
+                        <button onclick="addToCart('prod-conduit', 'Electrical Conduits (per meter)',5.50,'conduits.jpg')">Add to Cart</button>
                     </div>
-                    <div class="product-item">
-                        <img src="fusebox.jpg" alt="Fuse box">
+                    
+                    <div class="product-item electronics">
+                        <img src="fusebox.jpg" alt="Fuse box" id="product-img-9">
                         <h4> Fuse Box</h4>
                         <p> 299.99SR </p>
-                        <button>Add to Cart</button>
+                        <div class="image-options">
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-9', 'fusebox.jpg')"> View 1</button>
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-9', 'fuse2.jpg')"> View 2</button>
+                        </div>
+                        <button onclick="addToCart('prod-fusebox','Fuse Box',299.99,'fusebox.jpg')">Add to Cart</button>
                     </div>
-                    <div class="product-item">
-                       <img src="wiring.jpg" alt="Electrical wiring rolls">
+                    
+                    <div class="product-item electronics">
+                        <img src="wiring.jpg" alt="Electrical wiring rolls" id="product-img-10">
                         <h4> Electrical Wiring Roll (100m)</h4>
-                        <p> 149.99SR </p>  
-                        <button>Add to Cart</button>
+                        <p> 149.99SR </p>
+                        <div class="image-options">
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-10', 'wiring.jpg')"> View 1</button>
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-10', 'wire2.jpg')"> View 2</button>
+                        </div>
+                        <button onclick="addToCart('prod-wiring', 'Electrical Wiring Roll',149.99,'wiring.jpg')">Add to Cart</button>
                     </div>
-                      <div class="product-item">
-                        <img src="smart speakers.jpg" alt="smart speakers picture">
+                <div class="product-item smart-home">
+                        <img src="smart speakers.jpg" alt="smart speakers picture" id="product-img-11">
                         <h4> Smart Speakers</h4>
                         <p> 100SR</p>
-                        <button>Add to Cart</button>
+                        <div class="image-options">
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-11', 'smart speakers.jpg')"> View 1</button>
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-11', 'speaker2.webp')"> View 2</button>
+                        </div>
+                        <button onclick="addToCart('prod-speaker', 'Smart Speakers',100,'smart speakers.jpg')">Add to Cart</button>
                     </div>
-                    <div class="product-item">
-                        <img src="Led.jpg" alt="smart lights picture">
+                    
+                    <div class="product-item smart-home">
+                        <img src="Led.jpg" alt="smart lights picture" id="product-img-12">
                         <h4> Smart LED Lights</h4>
                         <p> 75SR </p>
-                        <button>Add to Cart</button>
+                        <div class="image-options">
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-12', 'Led.jpg')"> View 1</button>
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-12', 'led2.jpg')"> View 2</button>
+                        </div>
+                        <button onclick="addToCart('prod-led', 'Smart LED Lights',75,'Led.jpg')">Add to Cart</button>
                     </div>
-                    <div class="product-item">
-                       <img src="smartDoorKnob.jpg" alt="Smart doorknob picture">
+                    
+                    <div class="product-item smart-home">
+                        <img src="smartDoorKnob.jpg" alt="Smart doorknob picture" id="product-img-13">
                         <h4> Smart Door Knob</h4>
                         <p> 250SR </p>
-                        <button>Add to Cart</button>
+                        <div class="image-options">
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-13', 'smartDoorKnob.jpg')"> View 1</button>
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-13', 'door2.jpg')"> View 2</button>
+                        </div>
+                        <button onclick="addToCart('prod-knob','Smart Door Knob',250,'smartDoorKnob.jpg')">Add to Cart</button>
                     </div>
-                    <div class="product-item">
-                        <img src="intercom.webp" alt="Smart intercom picture">
+                    
+                    <div class="product-item smart-home">
+                        <img src="intercom.webp" alt="Smart intercom picture" id="product-img-14">
                         <h4> Smart Intercom System</h4>
                         <p> 300SR </p>
-                        <button>Add to Cart</button>
+                        <div class="image-options">
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-14', 'intercom.webp')"> View 1</button>
+                            <button class="dynamic-pic-btn" onclick="changeProductImage('product-img-14', 'enter2.png')"> View 2</button>
+                        </div>
+                        <button onclick="addToCart('prod-intercom', 'Smart Intercom System',300,'intercom.webp')">Add to Cart</button>
                     </div>
+                     
                     </div>
+                </div>
+                </section>
+
+
+                <div id="cart-section" style="display: none;">
+                     <h2>Your Shopping Cart</h2>
+      
+                        <table class="cart">
+                            <thead>
+                                 <tr>
+                                   
+                                    <th>Product Image</th>
+                                    <th>Product Name</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody id="cart-body">
+                                 
+                            </tbody>
+                            <tfoot id="cart-foot">
+                                
+                            </tfoot>
+                        </table>
+               </div>
                 </fieldset>
-            </section>
+                
 
         </main>
 
@@ -165,10 +261,28 @@
         <div>
         <nav>
         <button><a href= "about.html">About Us</a></button>  |
-        <button><a href= "contact.html">Contact Us</a></button> |
+        <button><a href= "contact.html">Contact Us</a></button> 
         </nav>
         </div>
     </footer>
+    
+    <section id="commentsSection">
+        <h2>Leave a Comment</h2>
+
+        <form>
+            <textarea name="comment" rows="5" cols="60" placeholder="Write your comment here..."></textarea>
+            <br>
+            <input type="submit" value="Submit Comment">
+        </form>
+
+        <nav>
+            <a href="#top">
+                <button>Back to Top</button>
+            </a>
+        </nav>
+
+    </section>
+
 
 
 </html>

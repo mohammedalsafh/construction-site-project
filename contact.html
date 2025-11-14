@@ -50,9 +50,17 @@
 
 </head>
 
+
+    
 <body>
     
-
+<!-- Project Logo (Bottom-Right) -->
+    <img src="logo.png" usemap="#projectmap" class="project-logo">
+    <map name="projectmap">
+    <!-- Rectangle that covers entire logo -->
+    <area shape="rect" coords="0,0,200,200" href="about.html" alt="about.html">
+    </map>
+    
     <main>
         <h1 style="color: rgb(2, 1, 1); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:italic;">Contact Us</h1>
         <form method="post" action="#" novalidate>
@@ -79,6 +87,7 @@
                     <select name="Subject" required>
                         <option value="" disabled selected>Select a subject</option>
                         <option value="general">General Inquiry</option>
+                        <option value="service">Book a Service</option>
                         <option value="support">Support</option>
                         <option value="feedback">Question About Materials</option>
                         <option value="other">Other</option>
