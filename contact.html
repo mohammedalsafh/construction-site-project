@@ -28,7 +28,25 @@
         nav button:hover {
             background-color: #fffcf9;
         }
+
+        
+    main {
+    margin-top: 90px;   
+}
+
+.backpic {
+    position: absolute;      /* take image out of normal flow */
+    top: 10%;                /* vertical position */
+    left: 6%;              /* horizontal position */
+    width: 90%;              /* size of image */
+    opacity: 0.2;            /* transparent */
+    z-index: -1; 
+    height: 51%;            /* behind all content */
+}
+
     </style>
+
+
 
 </head>
 
@@ -97,6 +115,8 @@
             <button><a href="sign-up.html">Sign Up</a></button>
         </nav>
     </footer>
+
+    <img src="contactpic.png" class="backpic">
 
 </body>
 

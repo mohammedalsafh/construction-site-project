@@ -34,7 +34,24 @@
     ul {
     list-style-position: inside;
     text-align: center;
+
 }
+
+
+    main {
+    margin-top: 90px;   
+}
+
+.backpic {
+    position: absolute;      /* take image out of normal flow */
+    top: 10%;                /* vertical position */
+    left: 6%;              /* horizontal position */
+    width: 90%;              /* size of image */
+    opacity: 0.2;            /* transparent */
+    z-index: -1;              /* behind all content */
+    height: 51%;            
+}
+
 
    </style>
 
@@ -77,5 +94,6 @@
         </nav>
         </footer>
 
+        <img src="aboutpic.png" class="backpic">
         </body>
 </html>

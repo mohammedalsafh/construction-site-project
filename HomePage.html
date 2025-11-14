@@ -30,12 +30,26 @@
         background-color: #fffcf9;
     }
 
+    main {
+    margin-top: 90px;   
+}
+
+.backpic {
+    position: absolute;      /* take image out of normal flow */
+    top: 10%;                /* vertical position */
+    left: 6%;              /* horizontal position */
+    width: 90%;              /* size of image */
+    opacity: 0.2;            /* transparent */
+    z-index: -1; 
+    height: 51%;            /* behind all content */
+}
+
 </style>
 
     </head>
    
     <body>
-    
+    <main>
     <header>
         <!-- introduction -->
     <h1 style="color: rgb(2, 1, 1); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:italic;" >WELCOME TO OUR <br>All-in-One Home Construction Website </h1>
@@ -52,6 +66,8 @@
             <button><a href= "sign-up.html">Sign Up</a></button> 
         </nav>
         </footer>
-      
+      </main>
+
+      <img src="homepic.png" class="backpic">
     </body>
 </html>
