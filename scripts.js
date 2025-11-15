@@ -96,24 +96,25 @@ function addToCart(productId, productName, productPrice, productImageSrc) {
 
 }
 
+  /*the function showPage is the function used in our website to seperate the store and the cart section from each other*/ 
 function showPage(pageId) {
   var storePage = document.getElementById('store-section');
   var cartPage = document.getElementById('cart-section');
-
+  //sets both pages styles to display none
   storePage.style.display = 'none';
   cartPage.style.display = 'none';
-
+//then takes the pageID from the parameter of the function and its display is set to block
   var pageToShow = document.getElementById(pageId);
   pageToShow.style.display = 'block';
-
+//this expression is for when the user is in the cart section and wants to return to the store section, after the user clicks the 'show store' button the pageID passed to this function will be store-section.
   if (pageId === 'store-section') {
+// the function filter products is used here to make all the products show for when the pageID is store-section
     filterProducts('all');
   }
 }
 
 function filterProducts(category) {
-
-
+//function that will seperate all the products from each other or make them all visible, basically does filtering to the product chosen by the user from the drop-down menu
   var allProducts = document.getElementsByClassName('product-item');
 
   for (var i = 0; i < allProducts.length; i++) {

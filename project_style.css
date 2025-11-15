@@ -74,18 +74,15 @@ body {
     margin :auto;
     
 }
-.product-item{
-    
+.product-item{   
     text-align: center;
     border : 1px solid;
     padding-bottom: 50px;
     border-radius: 20px;
     background-color: lightgray;
-    box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.747);
-    
+    box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.747);  
 }
 .product-item img{
-    
     width: 100%;   
     border-radius: 20px;    
     border: 1px solid;
