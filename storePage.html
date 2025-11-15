@@ -21,9 +21,13 @@
 
 <body id="top">
 
+    <!--logo bottom right-->
+       <!-- the picture we will use with the usemape as a pointer to the map name -->
     <img src="logo.png" usemap="#projectmap" class="project-logo">
-    <map name="projectmap">
-        <area shape="rect" coords="0,0,200,200" href="about.html" alt="about.html">
+    <map name="projectmap"><!--we were asked in the assigment word file to use mapping and pic mapping-->
+    <!-- map basicly create a clickable region for an image-->
+    <!-- area defins the looks and place of the reagion and if the region is clicked where does it take us -->
+    <area shape="rect" coords="0,0,200,200" href="about.html" alt="about.html">
     </map>
 
     <header>
@@ -33,11 +37,13 @@
                 <button><a href="log-in.html">Log In</a></button> |
                 <button><a href="sign-up.html">Sign Up</a></button> |
                 <button><a href="storePage.html">Store</a></button> |
-                <button><a href="#commentsSection" class="btn">Go to Comments</a></button>
+                <button><a href="#commentsSection" class="btn">Go to Comments</a></button><!--internal links that takes u down to the comment section-->
             </nav>
         </div>
     </header>
+
     <br>
+
     <main>
         <!--bar which contains the filters for the products and the store and cart sections where users can can click the (show store) or (show cart) button-->
         <div class="bar">
@@ -67,201 +73,267 @@
                     <div class="product-container">
 
                         <div class="product-item raw-materials">
-                            <img src="cement.jpeg" id="product-img-1">
+                            <img src="cement.jpeg" id="product-img-1"><!-- the first image id-->
                             <h4> Premium Cement (50kg)</h4>
                             <p> 12.99SR</p>
+
                             <div class="image-options">
                                 <button class="dynamic-pic-btn"
-                                    onclick="changeProductImage('product-img-1', 'cement.jpeg')"> View 1</button>
-                                <button class="dynamic-pic-btn"
+                                    onclick="changeProductImage('product-img-1', 'cement.jpeg')"> View 1</button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
+                                    <button class="dynamic-pic-btn"
                                     onclick="changeProductImage('product-img-1', 'cement2.jpg')"> View 2</button>
+                                     <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
                             </div>
+
                             <button onclick="addToCart('prod-cement','Premium Cement (50kg)' , 12.99,'cement.jpeg')">Add
                                 to Cart</button>
                         </div>
 
                         <div class="product-item raw-materials">
-                            <img src="red-bricks.jpg" id="product-img-2">
+                            <img src="red-bricks.jpg" id="product-img-2"><!-- the first image id-->
                             <h4> Red Bricks (per piece)</h4>
                             <p> 0.75SR </p>
+
                             <div class="image-options">
                                 <button class="dynamic-pic-btn"
-                                    onclick="changeProductImage('product-img-2', 'red-bricks.jpg')"> View 1</button>
+                                    onclick="changeProductImage('product-img-2', 'red-bricks.jpg')"> View 1</button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
                                 <button class="dynamic-pic-btn"
                                     onclick="changeProductImage('product-img-2', 'brick2.jpg')"> View 2</button>
+                                    <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
                             </div>
+
                             <button
                                 onclick="addToCart('prod-bricks', 'Red Bricks (per piece)', 0.75,'red-bricks.jpg')">Add
                                 to Cart</button>
                         </div>
 
                         <div class="product-item raw-materials">
-                            <img src="steelbar.jpg" id="product-img-3">
+                            <img src="steelbar.jpg" id="product-img-3"><!-- the first image id-->
                             <h4> Steel Bar </h4>
                             <p>200SR</p>
+
                             <div class="image-options">
                                 <button class="dynamic-pic-btn"
-                                    onclick="changeProductImage('product-img-3', 'steelbar.jpg')"> View 1</button>
+                                    onclick="changeProductImage('product-img-3', 'steelbar.jpg')"> View 1</button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
                                 <button class="dynamic-pic-btn"
                                     onclick="changeProductImage('product-img-3', 'steel2.webp')"> View 2</button>
+                                  <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
                             </div>
+
                             <button onclick="addToCart('prod-steel','Steel Bar',200,'steelbar.jpg')">Add to
                                 Cart</button>
                         </div>
 
                         <div class="product-item ready-made">
-                            <img src="livingRoom.jpg" alt="Living room picture" id="product-img-4">
+                            <img src="livingRoom.jpg" alt="Living room picture" id="product-img-4"><!-- the first image id-->
                             <h4> Modern Living Room Set</h4>
                             <p> 4999.99SR</p>
+
                             <div class="image-options">
                                 <button class="dynamic-pic-btn"
-                                    onclick="changeProductImage('product-img-4', 'livingRoom.jpg')"> View 1</button>
+                                    onclick="changeProductImage('product-img-4', 'livingRoom.jpg')"> View 1</button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
                                 <button class="dynamic-pic-btn"
                                     onclick="changeProductImage('product-img-4', 'living2.jpeg')"> View 2</button>
+                                   <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
                             </div>
+
                             <button
                                 onclick="addToCart('prod-livingroom', 'Modern Living Room Set', 4999.99,'livingRoom.jpg')">Add
                                 to Cart</button>
                         </div>
 
                         <div class="product-item ready-made">
-                            <img src="bedroom.jpeg" alt="Bedroom picture" id="product-img-5">
+                            <img src="bedroom.jpeg" alt="Bedroom picture" id="product-img-5"><!-- the first image id-->
                             <h4> Cozy Bedroom Set</h4>
                             <p> 3999.99SR </p>
                             <div class="image-options">
+
                                 <button class="dynamic-pic-btn"
-                                    onclick="changeProductImage('product-img-5', 'bedroom.jpeg')"> View 1</button>
+                                    onclick="changeProductImage('product-img-5', 'bedroom.jpeg')"> View 1</button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
                                 <button class="dynamic-pic-btn"
                                     onclick="changeProductImage('product-img-5', 'bed2.jpg')"> View 2</button>
+                                    <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
                             </div>
+
                             <button onclick="addToCart('prod-bedroom','Cozy Bedroom Set',3999.99,'bedroom.jpeg')">Add to
                                 Cart</button>
                         </div>
 
                         <div class="product-item ready-made">
-                            <img src="kitchen.avif" alt="Kitchen picture" id="product-img-6">
+                            <img src="kitchen.avif" alt="Kitchen picture" id="product-img-6"><!-- the first image id-->
                             <h4> Contemporary Kitchen Set</h4>
                             <p> 5999.99SR </p>
                             <div class="image-options">
+
                                 <button class="dynamic-pic-btn"
-                                    onclick="changeProductImage('product-img-6', 'kitchen.avif')"> View 1</button>
+                                    onclick="changeProductImage('product-img-6', 'kitchen.avif')"> View 1</button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
                                 <button class="dynamic-pic-btn"
                                     onclick="changeProductImage('product-img-6', 'kitchen2.jpg')"> View 2</button>
                             </div>
+
                             <button
                                 onclick="addToCart('prod-kitchen','Contemporary Kitchen Set',5999.99,'kitchen.avif')">Add
                                 to Cart</button>
                         </div>
 
                         <div class="product-item ready-made">
-                            <img src="bathroom.avif" id="product-img-7">
+                            <img src="bathroom.avif" id="product-img-7"><!-- the first image id-->
                             <h4> Elegant Bathroom Set</h4>
                             <p> 2999.99SR </p>
+
                             <div class="image-options">
                                 <button class="dynamic-pic-btn"
-                                    onclick="changeProductImage('product-img-7', 'bathroom.avif')"> View 1</button>
+                                    onclick="changeProductImage('product-img-7', 'bathroom.avif')"> View 1</button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
                                 <button class="dynamic-pic-btn"
                                     onclick="changeProductImage('product-img-7', 'bath2.webp')"> View 2</button>
+                                    <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
                             </div>
+
                             <button
                                 onclick="addToCart('prod-bathroom','Elegant Bathroom Set',2999.99,'bathroom.avif')">Add
                                 to Cart</button>
                         </div>
                         <div class="product-item electronics">
-                            <img src="conduits.jpg" alt="Electrical conduits" id="product-img-8">
+                            <img src="conduits.jpg" alt="Electrical conduits" id="product-img-8"><!-- the first image id-->
                             <h4> Electrical Conduits (per meter)</h4>
                             <p> 5.50SR </p>
+
                             <div class="image-options">
                                 <button class="dynamic-pic-btn"
-                                    onclick="changeProductImage('product-img-8', 'conduits.jpg')"> View 1</button>
+                                    onclick="changeProductImage('product-img-8', 'conduits.jpg')"> View 1</button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
                                 <button class="dynamic-pic-btn"
                                     onclick="changeProductImage('product-img-8', 'elec2.webp')"> View 2</button>
+                                     <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
                             </div>
+
                             <button
                                 onclick="addToCart('prod-conduit', 'Electrical Conduits (per meter)',5.50,'conduits.jpg')">Add
                                 to Cart</button>
                         </div>
 
                         <div class="product-item electronics">
-                            <img src="fusebox.jpg" alt="Fuse box" id="product-img-9">
+                            <img src="fusebox.jpg" alt="Fuse box" id="product-img-9"><!-- the first image id-->
                             <h4> Fuse Box</h4>
                             <p> 299.99SR </p>
+                            
                             <div class="image-options">
                                 <button class="dynamic-pic-btn"
-                                    onclick="changeProductImage('product-img-9', 'fusebox.jpg')"> View 1</button>
+                                    onclick="changeProductImage('product-img-9', 'fusebox.jpg')"> View 1</button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
                                 <button class="dynamic-pic-btn"
                                     onclick="changeProductImage('product-img-9', 'fuse2.jpg')"> View 2</button>
+                                     <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
                             </div>
+
                             <button onclick="addToCart('prod-fusebox','Fuse Box',299.99,'fusebox.jpg')">Add to
                                 Cart</button>
                         </div>
 
                         <div class="product-item electronics">
-                            <img src="wiring.jpg" alt="Electrical wiring rolls" id="product-img-10">
+                            <img src="wiring.jpg" alt="Electrical wiring rolls" id="product-img-10"><!-- the first image id-->
                             <h4> Electrical Wiring Roll (100m)</h4>
                             <p> 149.99SR </p>
+
                             <div class="image-options">
                                 <button class="dynamic-pic-btn"
-                                    onclick="changeProductImage('product-img-10', 'wiring.jpg')"> View 1</button>
+                                    onclick="changeProductImage('product-img-10', 'wiring.jpg')"> View 1</button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
                                 <button class="dynamic-pic-btn"
                                     onclick="changeProductImage('product-img-10', 'wire2.jpg')"> View 2</button>
+                                    <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
                             </div>
+
                             <button onclick="addToCart('prod-wiring', 'Electrical Wiring Roll',149.99,'wiring.jpg')">Add
                                 to Cart</button>
                         </div>
                         <div class="product-item smart-home">
-                            <img src="smart speakers.jpg" alt="smart speakers picture" id="product-img-11">
+                            <img src="smart speakers.jpg" alt="smart speakers picture" id="product-img-11"><!-- the first image id-->
                             <h4> Smart Speakers</h4>
                             <p> 100SR</p>
+
                             <div class="image-options">
                                 <button class="dynamic-pic-btn"
-                                    onclick="changeProductImage('product-img-11', 'smart speakers.jpg')"> View
-                                    1</button>
+                                    onclick="changeProductImage('product-img-11', 'smart speakers.jpg')"> View1</button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
                                 <button class="dynamic-pic-btn"
                                     onclick="changeProductImage('product-img-11', 'speaker2.webp')"> View 2</button>
+                                    <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
                             </div>
+                            
                             <button onclick="addToCart('prod-speaker', 'Smart Speakers',100,'smart speakers.jpg')">Add
                                 to Cart</button>
                         </div>
 
                         <div class="product-item smart-home">
-                            <img src="Led.jpg" alt="smart lights picture" id="product-img-12">
+                            <img src="Led.jpg" alt="smart lights picture" id="product-img-12"><!-- the first image id-->
                             <h4> Smart LED Lights</h4>
                             <p> 75SR </p>
+
                             <div class="image-options">
                                 <button class="dynamic-pic-btn"
-                                    onclick="changeProductImage('product-img-12', 'Led.jpg')"> View 1</button>
+                                    onclick="changeProductImage('product-img-12', 'Led.jpg')"> View 1</button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
                                 <button class="dynamic-pic-btn"
                                     onclick="changeProductImage('product-img-12', 'led2.jpg')"> View 2</button>
+                                    <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
                             </div>
+
                             <button onclick="addToCart('prod-led', 'Smart LED Lights',75,'Led.jpg')">Add to
                                 Cart</button>
                         </div>
 
                         <div class="product-item smart-home">
-                            <img src="smartDoorKnob.jpg" alt="Smart doorknob picture" id="product-img-13">
+                            <img src="smartDoorKnob.jpg" alt="Smart doorknob picture" id="product-img-13"><!-- the first image id-->
                             <h4> Smart Door Knob</h4>
                             <p> 250SR </p>
+
                             <div class="image-options">
                                 <button class="dynamic-pic-btn"
-                                    onclick="changeProductImage('product-img-13', 'smartDoorKnob.jpg')"> View 1</button>
+                                    onclick="changeProductImage('product-img-13', 'smartDoorKnob.jpg')"> View 1</button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
                                 <button class="dynamic-pic-btn"
                                     onclick="changeProductImage('product-img-13', 'door2.jpg')"> View 2</button>
+                                    <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
                             </div>
+
                             <button onclick="addToCart('prod-knob','Smart Door Knob',250,'smartDoorKnob.jpg')">Add to
                                 Cart</button>
                         </div>
 
                         <div class="product-item smart-home">
-                            <img src="intercom.webp" alt="Smart intercom picture" id="product-img-14">
+                            <img src="intercom.webp" alt="Smart intercom picture" id="product-img-14"><!-- the first image id-->
                             <h4> Smart Intercom System</h4>
                             <p> 300SR </p>
+
                             <div class="image-options">
                                 <button class="dynamic-pic-btn"
-                                    onclick="changeProductImage('product-img-14', 'intercom.webp')"> View 1</button>
+                                    onclick="changeProductImage('product-img-14', 'intercom.webp')"> View 1</button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
                                 <button class="dynamic-pic-btn"
                                     onclick="changeProductImage('product-img-14', 'enter2.png')"> View 2</button>
+                                    <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
                             </div>
+
                             <button
                                 onclick="addToCart('prod-intercom', 'Smart Intercom System',300,'intercom.webp')">Add to
                                 Cart</button>
@@ -314,6 +386,7 @@
     </div>
 </footer>
 
+<!-- comment section using textarea-->
 <section id="commentsSection">
     <h2>Leave a Comment</h2>
 
@@ -323,6 +396,7 @@
         <input type="submit" value="Submit Comment">
     </form>
 
+    <!-- internal link button that takes you to the top-->
     <nav>
         <a href="#top">
             <button>Back to Top</button>

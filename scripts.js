@@ -3,21 +3,26 @@ function validateEmail(email) {
 
   // the email must have @ and can end or start with @ 
   if (!email.includes("@") || email.startsWith("@") || email.endsWith("@")) {
+    //.include check if the string we have contains this specific char
+    //.startwith check if the string we have start this specific char
+    //.endwith check if the string we have end this specific char
     alert("Email must contain a valid @ symbol");
     return false;
   }
 
   // we reject if the user enter somthing like r@.com meaning there has to be somthing after the @ and before the .com
-  var atIndex = email.indexOf("@");
-  if (email.charAt(atIndex + 1) === ".") {
-    alert("Email cannot have '.' immediately after '@'");
+  var atIndex = email.indexOf("@");//here we find the index where @ is placed and we save it in var
+  if (email.charAt(atIndex + 1) === ".") {//here we return the index of @ and move 1 step ahead of it and see if that char is "." or no
+    alert("Email cannot have '.' immediately after '@'");//if its true it was "." it will return a message beacuse logically . cant happen after @ immeditaly
     return false;
   }
 
   // the email must have .somthing 
+  //.split split the string into 2 parts based on the char we gave so it will split the email into left @ right
+  // having [] means we will assign the part that is on the right of @ beacuse 1 is righ 0 is left
   var domainPart = email.split("@")[1];
-  if (!domainPart.includes(".")) {
-    alert("Email must contain a domain like .com or .sa");
+  if (!domainPart.includes(".")) {//if the right of @ doesnt containt .
+    alert("Email must contain a domain like .com or .sa");//send message
     return false;
   }
 
@@ -34,13 +39,14 @@ function validatePassword(pass) {
   }
 
   //the password need atleast 1 num
-  var numberPattern = /[0-9]/;
-  if (!numberPattern.test(pass)) {
+  var numberPattern = /[0-9]/;//any number from 0 to 9
+  if (!numberPattern.test(pass)) {//.test compare both of the give patterns in ragix and return true or false 
+    //if the .test value was true they are the same it will not send the alert and not start the if statment beacuse of "!"
     alert("Password must contain at least one number");
     return false;
   }
 
-  return true;
+  return true;//for the final acceptance of the form if everything was correct
 }
 
 // Grand total variable to keep track of the total price in the cart, deinfed globally so it can be accessed inside the addToCart function.
@@ -126,24 +132,27 @@ function filterProducts(category) {
 }
 
 
+// the parameters are (the main image id given by id in html, the new image src)
 function changeProductImage(imageId, newSrc) {
 
-
+//we get the main image and assign it to the new var
   var imageElement = document.getElementById(imageId);
 
-
+//the main image src will get the vlue of the new src so the new src will be the main image
   imageElement.src = newSrc;
 }
 
 
 // if more than 1 row means at least 1 product
 function checkCart() {
-  var table = document.getElementById("cart-table");
-  var rows = table.rows.length;
+  var table = document.getElementById("cart-table");// we get our cart by its id in html
+  var rows = table.rows.length;// we check if it has any rows in the table meaning it has any items or still empty
 
-  if (rows > 1) {
+  if (rows > 1) {//if the row is > 1 meaning it has at least 1 item
     document.getElementById("payment-button-container").innerHTML =
       "<a href='payment.html'><button class='payment-btn-nav'>Proceed to Payment</button></a>";
+      //get the dive of the button id from html and insert a new button and place it into it with the given style
+      //and make it a link to the payment page
   }
 }
 

@@ -51,7 +51,7 @@ body {
     cursor: pointer;
 }
 
-/*styling for the bar which contains the drop-down menu*/
+/*styling for the bar that contain the dropdown menu*/
 .bar {
   float: left;
   width: 100%; 
@@ -202,12 +202,13 @@ nav a {
     align-items: flex-start;
  }
 
+ /*only if the input was number this style will be appliesd*/
  input[type="number"]{
     width: 40px;
     text-align: center;
  }
   
-
+/*for the internal links so it be smooth*/
 html {
     scroll-behavior: smooth;
 }
@@ -230,7 +231,7 @@ html {
     margin-bottom: 5px; 
 }
 
-
+/* the button that change the items pics */
 .dynamic-pic-btn {
     cursor: pointer;
     padding: 5px 8px;
@@ -244,6 +245,7 @@ html {
     background-color: #ddd;
 }
 
+/* the button for the payment when a cart gets an item */
 .payment-btn-nav {
     padding: 8px 15px;
     background-color: #cfa382;
