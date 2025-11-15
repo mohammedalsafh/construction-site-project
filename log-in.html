@@ -89,10 +89,12 @@
 
 <body>
 
-    <!-- Project Logo (Bottom-Right) -->
+    <!--logo bottom right-->
+       <!-- the picture we will use with the usemape as a pointer to the map name -->
     <img src="logo.png" usemap="#projectmap" class="project-logo">
-    <map name="projectmap">
-    <!-- Rectangle that covers entire logo -->
+    <map name="projectmap"><!--we were asked in the assigment word file to use mapping and pic mapping-->
+    <!-- map basicly create a clickable region for an image-->
+    <!-- area defins the looks and place of the reagion and if the region is clicked where does it take us -->
     <area shape="rect" coords="0,0,200,200" href="about.html" alt="about.html">
     </map>
 
@@ -100,6 +102,7 @@
 
         <h2 style="color: rgb(2, 1, 1); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:italic;">Log in please:</h2>
 
+        <!--when the user press on submit it will return the value of to see if form is accepted or not the function we did in the scripts-->
         <form name="loginForm" method="post" action="#" onsubmit="return validateLogin()">
 
             <div>
@@ -142,6 +145,7 @@
     <footer>
         <nav>
             <button><a href="HomePage.html">Home Page</a></button> |
+            <button><a href= "product info.html">Product Info Page</a></button>  |
             <button><a href="contact.html">Contact Us</a></button> |
             <button><a href="about.html">About Us</a></button>
         </nav>

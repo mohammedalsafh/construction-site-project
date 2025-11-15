@@ -84,10 +84,12 @@
     
     <body>
 
-        <!-- Project Logo (Bottom-Right) -->
+       <!--logo bottom right-->
+       <!-- the picture we will use with the usemape as a pointer to the map name -->
     <img src="logo.png" usemap="#projectmap" class="project-logo">
-    <map name="projectmap">
-    <!-- Rectangle that covers entire logo -->
+    <map name="projectmap"><!--we were asked in the assigment word file to use mapping and pic mapping-->
+    <!-- map basicly create a clickable region for an image-->
+    <!-- area defins the looks and place of the reagion and if the region is clicked where does it take us -->
     <area shape="rect" coords="0,0,200,200" href="about.html" alt="about.html">
     </map>
 
@@ -95,7 +97,8 @@
         <h2 style="color: rgb(2,1,1); text-shadow: 1px 1px 10px rgb(73,52,38); font-style:italic;">
             Reset Your Password
         </h2>
-
+        
+        <!--when the user press on submit it will return the value of to see if form is accepted or not the function we did in the scripts-->
         <form name="forgotForm" method="post" action="#" onsubmit="return resetPassword()">
 
             
@@ -125,9 +128,21 @@
 
         </form>
 
+     <!--a button that will appear after the validation happens and it works-->
         <button id="loginBtn">
             <a href="log-in.html">Go to Login</a>
         </button>
+
+        <br>
+        <!-- nav links that are buttons-->
+    <footer>
+        <nav>
+            <button><a href="HomePage.html">Home Page</a></button> |
+            <button><a href= "product info.html">Product Info Page</a></button>  |
+            <button><a href="contact.html">Contact Us</a></button> |
+            <button><a href="about.html">About Us</a></button>  
+        </nav>
+    </footer>
 
     </main>
 

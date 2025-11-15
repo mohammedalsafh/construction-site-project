@@ -35,13 +35,13 @@
 }
 
 .backpic {
-    position: absolute;      /* take image out of normal flow */
-    top: 10%;                /* vertical position */
-    left: 6%;              /* horizontal position */
-    width: 90%;              /* size of image */
-    opacity: 0.2;            /* transparent */
-    z-index: -1; 
-    height: 51%;            /* behind all content */
+    position: absolute;      
+    top: 10%;               
+    left: 6%;              
+    width: 90%;             
+    opacity: 0.2;/* transparent */
+    z-index: -1;/* behind all content */
+    height: 51%;            
 }
 
 </style>
@@ -50,10 +50,12 @@
 
     <body>
         
-        <!-- Project Logo (Bottom-Right) -->
+    <!--logo bottom right-->
+       <!-- the picture we will use with the usemape as a pointer to the map name -->
     <img src="logo.png" usemap="#projectmap" class="project-logo">
-    <map name="projectmap">
-    <!-- Rectangle that covers entire logo -->
+    <map name="projectmap"><!--we were asked in the assigment word file to use mapping and pic mapping-->
+    <!-- map basicly create a clickable region for an image-->
+    <!-- area defins the looks and place of the reagion and if the region is clicked where does it take us -->
     <area shape="rect" coords="0,0,200,200" href="about.html" alt="about.html">
     </map>
 
@@ -68,12 +70,15 @@
         <footer>
              <nav>
             <button><a href= "HomePage.html">Home Page</a></button>  |
+            <button><a href= "product info.html">Product Info Page</a></button>  |
+            <button><a href="storePage.html">Store Page</a></button> |
             <button><a href= "about.html">About Us</a></button>  |
             <button><a href= "contact.html">Contact Us</a></button> |
             <button><a href= "log-in.html">Log In</a></button> |
             <button><a href= "sign-up.html">Sign Up</a></button> 
         </nav>
 
+        <!--whats app and email icons-->
          <div class="social-icons">
     <a href="https://wa.me/966500000000">
         <img src="whatsapp-xxl.png" class="icon-img" alt="WhatsApp">
@@ -86,6 +91,7 @@
         </footer>
       </main>
 
+      <!--the background pic-->
       <img src="homepic.png" class="backpic">
     </body>
 </html>
