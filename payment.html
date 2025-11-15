@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+    <link rel="stylesheet" href="project_style.css">
+
+
+
+
+    <script>
+        function completePayment() {
+
+            var name = document.forms["payForm"]["cardName"].value;
+            var number = document.forms["payForm"]["cardNumber"].value;
+            var cvv = document.forms["payForm"]["cvv"].value;
+            var exp = document.forms["payForm"]["expDate"].value;
+
+            // empty fields
+            if (name == "" || number == "" || cvv == "" || exp == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+
+            // card name rule
+            if (name.length < 5) {
+                alert("Card holder name is too short.");
+                return false;
+            }
+
+            // card number must be exactly 17 charachters
+            if (number.length != 17) {
+                alert("Card number must be exactly 17 digits.");
+                return false;
+            }
+
+            // expiry date rule cannot be same month or earlier
+            var expDate = new Date(exp + "-01");// the exp will be the year and month the user put and the -1 we will assume its day 1 of the month  
+            var today = new Date();//will give us a full date like this 2025/10/15 of the user current date
+            today.setDate(1);//compare only year and month only beacuse the days are set the same
+
+            if (expDate <= today) {
+                alert("Your card is expired or close to expiry date. Please use a valid card.");
+                return false;
+            }
+
+            // CVV need to be numbers only
+            if (isNaN(cvv)) {
+                alert("CVV must contain numbers only.");
+                return false;
+            }
+
+            alert("Your purchase is complete! To track your order, contact us through WhatsApp or Email.");
+            return false;
+        }
+    </script>
+
+</head>
+
+
+<body>
+    
+    <img src="logo.png" usemap="#projectmap" class="project-logo">
+    <map name="projectmap">
+        <area shape="rect" coords="0,0,200,200" href="about.html" alt="about.html">
+    </map>
+
+
+    <div class="payment-box">
+        <h2 style="text-align:center;">Payment Details</h2>
+
+        <form name="payForm" onsubmit="return completePayment()">
+
+            <label>Card Holder Name:</label>
+            <input type="text" name="cardName" required>
+            <br>
+            <label>Card Number:</label>
+            <input type="text" name="cardNumber" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" required>
+            <br>
+            <label>Expiry Date:</label>
+            <input type="month" name="expDate" required>
+            <br>
+            <label>CVV:</label>
+            <input type="password" name="cvv" maxlength="4" required>
+            <br>
+            <button type="submit" class="pay-btn">Confirm Payment</button>
+
+        </form>
+    </div>
+
+    <div class="social-icons">
+    <a href="https://wa.me/966500000000">
+        <img src="whatsapp-xxl.png" class="icon-img" alt="WhatsApp">
+    </a>
+
+    <a href="mailto:mohammedalsafh@gmail.com">
+        <img src="Gmail_Icon.png" class="icon-img" alt="Gmail">
+    </a>
+     </div>
+
+</body>
+
+</html>

@@ -261,3 +261,16 @@ html {
 .dynamic-pic-btn:hover {
     background-color: #ddd;
 }
+
+.payment-btn-nav {
+    padding: 8px 15px;
+    background-color: #cfa382;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.payment-btn-nav:hover {
+    background-color: #fffcf9;
+}
