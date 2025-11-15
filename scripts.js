@@ -42,6 +42,9 @@ function validatePassword(pass) {
 
     return true;
 }
+
+  var grandTotal = 0;
+
 function addToCart(productId, productName, productPrice, productImageSrc) {
     //used to create unique row ids for each product added to the cart
         var rowId = 'cart-row-' + productId;
@@ -53,10 +56,7 @@ function addToCart(productId, productName, productPrice, productImageSrc) {
         var quantity = document.getElementById('quantity-' + productId);
         var newQuantity = parseInt(quantity.value) + 1;
         quantity.value = newQuantity;
-        newTotal = newQuantity * productPrice;
-       
-        cartFoot.innerHTML = '<tr><td colspan="3" > Total</td><td id="total-' + productId + '">' + parseFloat(newTotal).toFixed(2) + ' SR</td></tr>';
-
+       quantity.value = newQuantity;
     }
     else if (!existingRow) {
         
@@ -64,22 +64,21 @@ function addToCart(productId, productName, productPrice, productImageSrc) {
        
         newRow += '<td><img src="' + productImageSrc + '" alt="' + productName + '" width="50"></td>';
         newRow += '<td>' + productName + '</td>'; 
-        newRow += '<td><input type="number" id="quantity-' + productId + '" value="1" min="1"></td>';
-        newRow += '<td>' + productPrice + ' SR</td>';
-        newRow += '</tr>';
-
-        var newRowF = '<tr>';
-        newRowF += '<td colspan="3" style="text-align:right;"><strong>Total:</strong></td>';
-        newRowF += '<td id="grand-total"> </td>';
-        newRowF += '<td id="total-' + productId + '">' + (newTotal+productPrice) + ' SR</td>';
-        newRowF += '</tr>';
-
-     
-            cartBody.innerHTML += newRow;
-            cartFoot.innerHTML = newRowF;
+        newRow += '<td><input type="number" id="quantity-' + productId + '" value="1" min="1" max="50"></td>';
+        newRow += '<td>' + productPrice.toFixed(2) + ' SR</td>';
+        newRow += '</tr>';    
+        cartBody.innerHTML += newRow;
         
-        showPage('cart-section');
+        
+        
+       
     }
+    
+        grandTotal += parseFloat(productPrice);
+        var total = document.getElementById('total-cell');
+        total.innerHTML = grandTotal.toFixed(2) + ' SR';
+
+         showPage('cart-section');
 
 }
 
