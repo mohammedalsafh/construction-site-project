@@ -43,25 +43,31 @@ function validatePassword(pass) {
   return true;
 }
 
+// Grand total variable to keep track of the total price in the cart, deinfed globally so it can be accessed inside the addToCart function.
 var grandTotal = 0;
+/* add to cart function that has 3 parameters,  */
 
 function addToCart(productId, productName, productPrice, productImageSrc) {
-  //used to create unique row ids for each product added to the cart
+  //used to create unique row ids for each product added to the cart.
+
   var rowId = 'cart-row-' + productId;
   var existingRow = document.getElementById(rowId);
   var cartBody = document.getElementById('cart-body');
   var cartFoot = document.getElementById('cart-foot');
-  var newTotal = 0;
+
+  //in this if we check if the product is already in the cart by checking if the row with the specific id exists.
   if (existingRow) {
     var quantity = document.getElementById('quantity-' + productId);
     var newQuantity = parseInt(quantity.value) + 1;
+    //updating the quantity of the item in the cart.
     quantity.value = newQuantity;
     quantity.value = newQuantity;
   }
+  //in this if we add a new row for the product if it doesnt exist in the cart.
   else if (!existingRow) {
-
+  //creating a new row dynamically using javs script for the product.
+  //we use newRow to write the whole layout of the table then we use innerHTML to add it to the cart body.
     var newRow = '<tr id="' + rowId + '">';
-
     newRow += '<td><img src="' + productImageSrc + '" alt="' + productName + '" width="50"></td>';
     newRow += '<td>' + productName + '</td>';
     newRow += '<td><input type="number" id="quantity-' + productId + '" value="1" min="1" max="50"></td>';
@@ -73,11 +79,11 @@ function addToCart(productId, productName, productPrice, productImageSrc) {
 
 
   }
-
+  //updating the grand total each time a product is added to the cart.
   grandTotal += parseFloat(productPrice);
   var total = document.getElementById('total-cell');
   total.innerHTML = grandTotal.toFixed(2) + ' SR';
-
+  //after a user adds a product it automatically takes them to the cart section of the page
   showPage('cart-section');
 
   checkCart();
@@ -107,7 +113,10 @@ function filterProducts(category) {
   for (var i = 0; i < allProducts.length; i++) {
     var product = allProducts[i];
 
-
+    // The first part of the condition checks if the selected category is 'all'
+    // The second part checks if the product belongs to the selected category by checking its class list.
+    // for example if the user chose electronics , product which is the variable above has the class list of allProducts(all products contains all the products in the store) so we check if it contains electronics.
+    // if either condition is true we display the product otherwise we hide it. 
     if (category === 'all' || product.classList.contains(category)) {
       product.style.display = 'block';
     } else {

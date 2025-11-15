@@ -21,6 +21,7 @@ body {
 
 
 /* here is the css styling for the filters*/
+/*this whole section of styling is to make the filters look like a drop down menu where the user can toggle the products they wish to see*/
 .store-filters h3 {
     border-bottom: 2px solid #f4f4f4;
     padding-bottom: 10px;
@@ -50,8 +51,8 @@ body {
     cursor: pointer;
 }
 
-/*styling for the sidebar*/
-.sidebar {
+/*styling for the bar which contains the drop-down menu*/
+.bar {
   float: left;
   width: 100%; 
   padding: 25;
@@ -62,6 +63,7 @@ body {
 
 }
 
+/* styling for the products container and each product item */
 .product-container {
     width: 900px;
     max-width: 90vw;
@@ -116,6 +118,7 @@ body {
     
 }
 
+/* styling for the fieldset which contains all the products*/
 fieldset {
     border: 2px solid #c46a25;
     border-radius: 10px;
@@ -144,27 +147,6 @@ nav a {
         background-color: #fffcf9;
     }
 
-    .shopping-cart {
-        border-radius: 10px;
-       width: 40px;
-       position: relative;
-        right: 20px;
-        z-index: 0;
-        cursor: pointer;
-    }
-    .countItems {
-        display:block;
-        width:  20px;     
-        position: absolute;
-        top :60px;
-        right: 47px;
-        background-color: red;
-        color: white;
-        border-radius: 50%;
-        align-items: center;
-        justify-content: center;
-        z-index: 1;
-    }
 
      /*styling for the cart table*/
     .cart table{
@@ -196,6 +178,7 @@ nav a {
         font-weight: bold;
         font-size: 1.1em;
     }
+
 
     .social-icons {
     margin-top: 15px;
@@ -242,7 +225,6 @@ html {
     opacity: 0.4;
 }
 
-/* container for your new dynamic picture buttons */
 .image-options {
     margin-top: 10px; 
     margin-bottom: 5px; 

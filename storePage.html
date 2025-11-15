@@ -6,7 +6,7 @@
     <title>Store - Products</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="project_style.css">
-
+    <!--simple embedded styling for the header div which has the links to the other pages of the store and an internal link to the comment section-->
     <style>
         header div {
             display: flex;
@@ -17,12 +17,6 @@
     </style>
     <script src="scripts.js"></script>
 </head>
-
-
-
-
-
-
 
 
 <body id="top">
@@ -45,15 +39,16 @@
     </header>
     <br>
     <main>
-        <div class="sidebar">
+        <!--bar which contains the filters for the products and the store and cart sections where users can can click the (show store) or (show cart) button-->
+        <div class="bar">
             <nav>
                 <button onclick="showPage('store-section')">Show Store</button>
                 <button onclick="showPage('cart-section')">Show Cart</button>
             </nav>
+            <!--store filters-->
             <aside class="store-filters">
                 <h3>Categories</h3>
                 <ul>
-
                     <li><a onclick="filterProducts('all')">All Products</a></li>
                     <li><a onclick="filterProducts('raw-materials')">Raw Materials</a></li>
                     <li><a onclick="filterProducts('ready-made')">Ready-Made Rooms</a></li>
@@ -65,10 +60,10 @@
         </div>
 
         <fieldset>
-
+            <!--The store sectionn of the page-->
             <section id="store-section">
-
-                <div class="store-layout">
+                <!--porduct container that houses all of the product items-->
+                <div>
                     <div class="product-container">
 
                         <div class="product-item raw-materials">
@@ -276,7 +271,7 @@
                 </div>
             </section>
 
-
+                <!--cart section which is always hidden unless user clicks the show cart button or add an item to the cart-->
             <div id="cart-section" style="display: none;">
                 <h2>Your Shopping Cart</h2>
 
