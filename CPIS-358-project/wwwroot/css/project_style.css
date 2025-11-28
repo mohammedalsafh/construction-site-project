@@ -55,7 +55,7 @@ body {
 .bar {
   float: left;
   width: 100%; 
-  padding: 25;
+  padding: 25px;
   background: #f4f4f4; 
   box-sizing: border-box; 
   border-radius: 25px;
@@ -130,19 +130,7 @@ nav a {
         color:black;          
     }
     
-    /* the outside look of the links */
-    nav button {
-        padding: 8px 15px;
-        background-color: #cfa382;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    
-    /* when we point the mouse in the link */
-    nav button:hover {
-        background-color: #fffcf9;
-    }
+   
 
 
      /*styling for the cart table*/
@@ -157,7 +145,7 @@ nav a {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }  
     .cart img{
-        width: 80px;;
+        width: 80px;
         height: auto;
         border-radius: 4px;
     }
@@ -189,7 +177,7 @@ nav a {
 .icon-img {
     width: 45px;
     height: 45px;
-    margin: 50 5px;
+    margin: 50px 5px;
     cursor: pointer;
 }
  .store-layout {
@@ -254,4 +242,17 @@ html {
 
 .payment-btn-nav:hover {
     background-color: #fffcf9;
+}
+
+.nav-btn {
+    padding: 8px 15px;
+    background-color: #cfa382;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.nav-btn:hover {
+    background-color: #fffcf9;
+    cursor: pointer;
+    
 }

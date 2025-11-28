@@ -1,15 +1,16 @@
-﻿@{
+﻿
+@{
     Layout = null;
 }
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Log in</title>
+    <title>Sign Up</title>
 
     <meta charset="UTF-8">
     <link rel="stylesheet" href="~/css/project_style.css">
-    <script src="scripts.js"></script>
+    <script src="~/js/scripts.js"></script>
 
     <style>
         /* the text that are inside the buttons */
@@ -57,15 +58,39 @@
     </style>
 
     <script>
-        function validateLogin() {
+        function validateForm() {
             // here we create vars
             // then assign the value of the specific form and names in the forms to them
-            var mail = document.forms["loginForm"]["UserE"].value;
-            var pass = document.forms["loginForm"]["UserP"].value;
+            var name = document.forms["signUpForm"]["FullName"].value;
+            var phone = document.forms["signUpForm"]["PhoneNumber"].value;
+            var mil = document.forms["signUpForm"]["UserE"].value;
+            var pass = document.forms["signUpForm"]["UserP"].value;
 
             // we see if user didnt enter anything in one of the fields
-            if (mail == "" || pass == "") {
+            if (name == "" || phone == "" || mil == "" || pass == "") {
                 alert("All fields must be filled out");
+                return false;
+            }
+
+            // we make a rule that we need firstname_lastname and it has to be letters only
+            /*
+           to undrestand .test and the following 2 lines more, now firstly (name) will have the value that we assigned from above
+           which is the value of the FullName from the forms, secondly the .test compares both of the of name pattern and the
+           namepatter var we gave a specific pattern to, then the .test if they match will result true if not will result false
+           if the result was false they dont match the "!" will turn the value to true which will cause entering the if statment
+           and send the alert message
+            */
+            var namePattern = /^[A-Za-z]+ [A-Za-z]+$/;
+            if (!namePattern.test(name)) {
+                alert("accepts only letter and the full name need to have the first and last name and between them 1 empty space.");
+
+                return false;//if the return was false the function will return false and the onsubmit will not work meaning the form will not submit
+            }
+
+            // we check if its the correct pattern
+            //.start with check if the string we have start with the given pattren or not
+            if (!phone.startsWith("966-5")) {
+                alert("the phone number need to start with 966-5");
                 return false;
             }
 
@@ -73,11 +98,11 @@
             //external scripts file and pass it the var that
             //we defined on top if its not the right validation
             //it will not submit form
-            if (!validateEmail(mail)) return false;
+            if (!validateEmail(mil)) return false;
             if (!validatePassword(pass)) return false;
 
             //if everything is correct a message will appear
-            alert("login is successful");
+            alert("account is created succsessfully");
 
             //here we make the button appears we call the disply and give it inlin block beacuse
             //it was display none in the styling
@@ -103,16 +128,31 @@
     </map>
 
     <main>
-
-        <h2 style="color: rgb(2, 1, 1); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:italic;">Log in please:</h2>
+        <h2 style="color: rgb(2, 1, 1); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:italic;">Create Your Account</h2>
 
         <!--when the user press on submit it will return the value of to see if form is accepted or not the function we did in the scripts-->
-        <form name="loginForm" method="post" action="#" onsubmit="return validateLogin()">
+        <form name="signUpForm" method="post" action="#" onsubmit="return validateForm()">
+
+            <div>
+                <label>
+                    Full Name:
+                    <input type="text" name="FullName" placeholder="folan alfolani" required>
+                </label>
+            </div>
+
+            <!--phone number with a given format-->
+            <div>
+                <label>
+                    Phone Number:
+                    <input type="tel" name="PhoneNumber" placeholder="966-5x-xxx-xxxx"
+                           pattern="966-5[0-9]-[0-9]{3}-[0-9]{4}" required>
+                </label>
+            </div>
 
             <div>
                 <label>
                     Email:
-                    <input type="email" name="UserE" placeholder="yourEmail@domain.com" required>
+                    <input type="email" name="UserE" placeholder="yourEmail@domain" required>
                 </label>
             </div>
 
@@ -123,22 +163,22 @@
                 </label>
             </div>
 
-            <input type="submit" value="Log In">
-            <input type="reset" value="Reset">
-            <input type="button" value="Forgot Password?">
+            <div>
+                <input type="submit" value="submit">
+                <input type="reset" value="reset">
+
+                <p>
+                    Already have an account?
+                </p>
+                <a href="log-in.html" class="secondary-button">Log In</a>
+            </div>
 
         </form>
 
         <!--a button that will appear after the validation happens and it works-->
-       
+        
             <a href="/Home/Store" class="nav-btn" id="storeBtn">Go to Store</a>
-
-        <!--a button if the user dont have account yet it will take them to the sign up page-->
-        <div>
-            <h3><strong>Don't have an account?</strong></h3>
-            <h4>Sign up here</h4>
-            <a href="sign-up.html" class="secondary-button">Sign up</a>
-        </div>
+        
 
     </main>
 
