@@ -1,0 +1,309 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Product Information</title>
+    <link rel="stylesheet" href="~/css/project_style.css">
+
+    <style>
+        nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* the outside look of the links */
+        nav button {
+            padding: 8px 15px;
+            background-color: #cfa382;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+            /* when we point the mouse in the link */
+            nav button:hover {
+                background-color: #fffcf9;
+            }
+
+
+        ul {
+            list-style-position: inside;
+            text-align: center;
+        }
+
+
+        main {
+            margin-top: 90px;
+        }
+
+        .backpic {
+            position: absolute;
+            top: 27%;
+            left: 6%;
+            width: 90%;
+            opacity: 0.2;
+            /* transparent */
+            z-index: -1;
+            /* behind all content */
+            height: 60%;
+        }
+
+        article {
+            width: 80%;
+            margin: 20px auto;
+            text-align: left;
+        }
+
+        summary {
+            cursor: pointer;
+            font-size: 20px;
+            color: #5a3715;
+            font-weight: bold;
+        }
+
+        .detail-body {
+            padding: 10px 10px 10px 20px;
+            line-height: 1.6;
+        }
+
+        .video-link {
+            color: #7a3c0c;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!--logo bottom right-->
+    <!-- the picture we will use with the usemape as a pointer to the map name -->
+    <img src="logo.png" usemap="#projectmap" class="project-logo">
+    <map name="projectmap">
+        <!--we were asked in the assigment word file to use mapping and pic mapping-->
+        <!-- map basicly create a clickable region for an image-->
+        <!-- area defins the looks and place of the reagion and if the region is clicked where does it take us -->
+        <area shape="rect" coords="0,0,200,200" href="about.html" alt="about.html">
+    </map>
+
+    <h1 style="color: rgb(2, 1, 1); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:italic;">Product Information</h1>
+    <h2 style="color: rgb(255, 255, 255); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:normal">Where you can find all the product info you need in one place. </h2>
+    <h3 style="color: rgb(20, 2, 2); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:normal">Click the arrow to see full details for each product.</h3>
+
+
+    <br>
+
+    <article>
+        <details>
+            <summary>Premium Cement (50kg)</summary>
+            <div class="detail-body">
+                <p><strong>What It Is:</strong> Cement used for walls, floors, and repairs.</p>
+                <p><strong>What It Does:</strong> Hardens and bonds building materials.</p>
+                <p><strong>When to Use:</strong> Foundations, flooring, wall building, crack repair.</p>
+                <p><strong>How to Use:</strong> Mix with sand + water, apply, let dry.</p>
+                <p>
+                    <strong>Video:</strong>
+                    <a class="video-link" href="https://youtu.be/fTAsL2dQKEk?si=oVXZpvSiZA8zcyHy">
+                        Cement Explanation
+                    </a>
+                </p>
+            </div>
+        </details>
+    </article>
+
+    <article>
+        <details>
+            <summary>Red Bricks (per piece)</summary>
+            <div class="detail-body">
+                <p><strong>What It Is:</strong> Clay bricks for wall construction.</p>
+                <p><strong>What It Does:</strong> Provides structure, insulation, and durability.</p>
+                <p><strong>When to Use:</strong> House walls, outdoor walls, BBQ spaces.</p>
+                <p><strong>How to Use:</strong> Stack with mortar and level evenly.</p>
+                <p>
+                    <strong>Video:</strong>
+                    <a class="video-link" href="https://youtu.be/jDgEqhz94-Y?si=h7DaeTz_xh0EMKEE">
+                        Bricklaying Tutorial
+                    </a>
+                </p>
+            </div>
+        </details>
+    </article>
+
+    <article>
+        <details>
+            <summary>Steel Bar</summary>
+            <div class="detail-body">
+                <p><strong>What It Is:</strong> Reinforcement bar for concrete structures.</p>
+                <p><strong>What It Does:</strong> Adds strength and prevents cracks.</p>
+                <p><strong>When to Use:</strong> Foundations, columns, slabs, beams.</p>
+                <p><strong>How to Use:</strong> Cut, tie together, place inside concrete molds.</p>
+                <p>
+                    <strong>Video:</strong>
+                    <a class="video-link" href="https://youtu.be/1yta4OV_k7s?si=1B-FMNlyQlA1NQvl">
+                        Steel Rebar Guide
+                    </a>
+                </p>
+            </div>
+        </details>
+    </article>
+
+    <article>
+        <details>
+            <summary>Electrical Conduits (per meter)</summary>
+            <div class="detail-body">
+                <p><strong>What It Is:</strong> Pipes that protect electrical wiring.</p>
+                <p><strong>What It Does:</strong> Prevents wire damage and increases safety.</p>
+                <p><strong>When to Use:</strong> Electrical installations and renovations.</p>
+                <p><strong>How to Use:</strong> Run wires inside conduits and secure to walls.</p>
+                <p>
+                    <strong>Video:</strong>
+                    <a class="video-link" href="https://youtu.be/S7dQRU95Cnw?si=V6m4qP9T9JKuu2uK">
+                        Conduit Installation
+                    </a>
+                </p>
+            </div>
+        </details>
+    </article>
+
+    <article>
+        <details>
+            <summary>Fuse Box</summary>
+            <div class="detail-body">
+                <p><strong>What It Is:</strong> Main electrical safety and breaker panel.</p>
+                <p><strong>What It Does:</strong> Protects against overload and short circuits.</p>
+                <p><strong>When to Use:</strong> New electrical systems or updating old ones.</p>
+                <p><strong>How to Use:</strong> Must be installed by an electrician.</p>
+                <p>
+                    <strong>Video:</strong>
+                    <a class="video-link" href="https://youtu.be/J6w-ASh6eKw?si=qYWlmC11FyVf7TMS">
+                        Fuse Box Explained
+                    </a>
+                </p>
+            </div>
+        </details>
+    </article>
+
+    <article>
+        <details>
+            <summary>Electrical Wiring Roll (100m)</summary>
+            <div class="detail-body">
+                <p><strong>What It Is:</strong> Insulated electrical cable roll.</p>
+                <p><strong>What It Does:</strong> Carries electricity safely in homes.</p>
+                <p><strong>When to Use:</strong> New circuits or replacing damaged wires.</p>
+                <p><strong>How to Use:</strong> Cut and run through electrical conduits.</p>
+                <p>
+                    <strong>Video:</strong>
+                    <a class="video-link" href="https://youtu.be/1D5OqJ5SF_I?si=GnML7I3Px1vmA4UX">
+                        Electrical Wire Guide
+                    </a>
+                </p>
+            </div>
+        </details>
+    </article>
+
+    <article>
+        <details>
+            <summary>Smart LED Lights</summary>
+            <div class="detail-body">
+                <p><strong>What It Is:</strong> Mobile app controlled LED bulbs.</p>
+                <p><strong>What It Does:</strong> Change color and brightness instantly.</p>
+                <p><strong>When to Use:</strong> Decoration, mood lighting, energy saving.</p>
+                <p><strong>How to Use:</strong> Install, connect to wifi or app, customize.</p>
+                <p>
+                    <strong>Video:</strong>
+                    <a class="video-link" href="https://youtu.be/eK0ZkzsVkKY?si=pc4wbZFRcy6tC6Ae">
+                        Smart LED Light Tutorial
+                    </a>
+                </p>
+            </div>
+        </details>
+    </article>
+
+    <article>
+        <details>
+            <summary>Smart Speakers</summary>
+            <div class="detail-body">
+                <p><strong>What It Is:</strong> Voice-controlled speaker.</p>
+                <p><strong>What It Does:</strong> Plays music, answers questions, controls smart devices.</p>
+                <p><strong>When to Use:</strong> Entertainment or smart home use.</p>
+                <p><strong>How to Use:</strong> Plug in, connect to wifi, speak commands.</p>
+                <p>
+                    <strong>Video:</strong>
+                    <a class="video-link" href="https://youtu.be/ZkuKvYQQjlg?si=U9WY6umctOx1_Kby">
+                        Smart Speaker Demo
+                    </a>
+                </p>
+            </div>
+        </details>
+    </article>
+
+    <article>
+        <details>
+            <summary>Smart Door Knob</summary>
+            <div class="detail-body">
+                <p><strong>What It Is:</strong> Keyless smart lock system.</p>
+                <p><strong>What It Does:</strong> Allows unlocking with fingerprint or passcode.</p>
+                <p><strong>When to Use:</strong> Bedroom doors, apartment entrances.</p>
+                <p><strong>How to Use:</strong> Install and set your code or fingerprint.</p>
+                <p>
+                    <strong>Video:</strong>
+                    <a class="video-link" href="https://youtube.com/shorts/yABr-7qfGG4?si=miKVZ6-a-woEMj5i"
+                       target="_blank">
+                        Smart Lock Demo
+                    </a>
+                </p>
+            </div>
+        </details>
+    </article>
+
+    <article>
+        <details>
+            <summary>Smart Intercom System</summary>
+            <div class="detail-body">
+                <p><strong>What It Is:</strong> Video/audio door communication device.</p>
+                <p><strong>What It Does:</strong> Lets you see and talk to visitors.</p>
+                <p><strong>When to Use:</strong> Home entrances, gates, apartments.</p>
+                <p><strong>How to Use:</strong> Mount near door and connect to app.</p>
+                <p>
+                    <strong>Video:</strong>
+                    <a class="video-link" href="https://youtube.com/shorts/n1_hLq4tRBw?si=B2r6YYedQfOuQday"
+                       target="_blank">
+                        Intercom Demo
+                    </a>
+                </p>
+            </div>
+        </details>
+    </article>
+
+    <br>
+    <br>
+
+    <footer style="text-align:center;">
+        <!-- nav links that are buttons-->
+        <nav>
+            <button><a href="HomePage.html">Home Page</a></button>  |
+            <button><a href="product info.html">Product Info Page</a></button>  |
+            <button><a href="storePage.html">Store Page</a></button> |
+            <button><a href="about.html">About Us</a></button>  |
+            <button><a href="contact.html">Contact Us</a></button> |
+            <button><a href="log-in.html">Log In</a></button> |
+            <button><a href="sign-up.html">Sign Up</a></button>
+            <br><br>
+            <a href="#top">
+                <button>Back to Top</button>
+            </a>
+            <p>© 2024 Construction Store - All Rights Reserved</p>
+        </nav>
+
+    </footer>
+
+    <!--the background pic-->
+    <img src="infopic.png" class="backpic">
+</body>
+
+</html>

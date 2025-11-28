@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Services - Our Services</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/project_style.css">
+    <style>
+        header div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <nav>
+                <!--pages at the top of the services page-->
+                <button><a href="/Home/Index">Home Page</a></button>  |
+                <button><a href="log-in.html">Log In</a></button> |
+                <button><a href="sign-up.html">Sign Up</a></button> |
+                <button><a href="storePage.html">Store</a></button>
+            </nav>
+
+        </div>
+    </header>
+    <main>
+        <section>
+            <fieldset>
+                <legend><h2>Our Services</h2></legend>
+                <!--this section has a div(product-container) which is the parent of the div which has the product items-->
+                <div class="product-container">
+                    <div class="product-item">
+                        <img src="person.jpg">
+                        <h4>Plumber</h4>
+                        <h5>Abdullah</h5>
+                        <p>13 years of experience<p>
+                            <button>Hire</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="person.jpg">
+                        <h4>Engineer</h4>
+                        <h5>Mohammed</h5>
+                        <p>8 years of experience<p>
+                            <button>Hire</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="person.jpg">
+                        <h4>Electrical Engineer</h4>
+                        <h5>Ali</h5>
+                        <p>10 years of experience<p>
+                            <button>Hire</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="person.jpg">
+                        <h4>Architect</h4>
+                        <h5>Ahmed</h5>
+                        <p>12 years of experience<p>
+                            <button>Hire</button>
+                    </div>
+                </div>
+            </fieldset>
+        </section>
+    </main>
+</body>
+</html>
