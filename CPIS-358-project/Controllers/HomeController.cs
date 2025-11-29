@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Microsoft.AspNetCore.Identity;
 using CPIS_358_project.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -44,6 +45,7 @@ namespace CPIS_358_project.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult SignUp(User user)
         {
@@ -53,9 +55,9 @@ namespace CPIS_358_project.Controllers
             }
 
 
-            return RedirectToAction(nameof(Login));
+            return RedirectToAction(nameof(Store));
         }
-        // Corresponds to forgotPass.html
+        
         public IActionResult ForgotPassword()
         {
             return View();
