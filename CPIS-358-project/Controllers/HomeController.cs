@@ -16,49 +16,57 @@ namespace CPIS_358_project.Controllers
             return View();
         }
 
-        // Corresponds to product info.html
+        
         public IActionResult ProductInfo()
         {
             return View();
         }
 
-        // Corresponds to Services.html
+        
         public IActionResult Services()
         {
             return View();
         }
 
-        // Corresponds to contact.html
+        
         public IActionResult Contact()
         {
             return View();
         }
 
-        // Corresponds to log-in.html
+       
         public IActionResult Login()
         {
             return View();
         }
 
-        // Corresponds to sign-up.html (You didn't upload this, but I see it linked)
+        
         public IActionResult SignUp()
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult SignUp(User user)
+        {
+            if (String.IsNullOrEmpty(user.FullName) || String.IsNullOrEmpty(user.UserE))
+            {
+                return View();
+            }
 
-        // Corresponds to forgotPass.html
+            return RedirectToAction(nameof(Login));
+        }
+
+        
         public IActionResult ForgotPassword()
         {
             return View();
         }
 
-        // Corresponds to storePage.html (You didn't upload this, but it is linked)
         public IActionResult Store()
         {
             return View();
         }
 
-        // Corresponds to payment.html
         public IActionResult Payment()
         {
             return View();

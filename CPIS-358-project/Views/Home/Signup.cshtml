@@ -108,7 +108,8 @@
             //it was display none in the styling
             document.getElementById("storeBtn").style.display = "inline-block";
 
-            return false; // this will prevent the page to lose all the info after the user press submit
+            return true; // Changed return to 'true' to allow the form to submit.
+                        // 'false' was blocking the HTTP POST request to the C# Controller.
         }
     </script>
 
@@ -131,7 +132,7 @@
         <h2 style="color: rgb(2, 1, 1); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:italic;">Create Your Account</h2>
 
         <!--when the user press on submit it will return the value of to see if form is accepted or not the function we did in the scripts-->
-        <form name="signUpForm" method="post" action="#" onsubmit="return validateForm()">
+        <form name="signUpForm" method="post" action="/Home/SignUp" onsubmit="return validateForm()">
 
             <div>
                 <label>
