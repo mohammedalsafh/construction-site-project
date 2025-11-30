@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+    ViewData["Title"] = "Account";
+    var cookies = Context.Request.Cookies;
+}
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/project_style.css">
+    </head>
+    <body>
+        <header>
+        <nav>
+            <a href="/Home/Index" class="nav-btn">Home Page</a> |
+            <a href="/Home/Productinfo" class="nav-btn">Product Info Page</a> |
+            <a href="/Home/Store" class="nav-btn">Store Page</a>|
+            <a href="/Home/About" class="nav-btn">About Us</a> |
+            <a href="/Home/Contact" class="nav-btn">Contact Us</a> |
+            <a href="/Home/Login" class="nav-btn">Log In</a> |
+            <a href="/Home/Signup" class="nav-btn">Sign Up</a> 
+            
+        </nav>
+        </header>
+        <fieldset>
+            <legend>Account</legend>
+        <div class="product-container">
+            <ul>
+                @foreach (var c in cookies)
+                  {
+                        <li>
+                        <strong>@c.Key: </strong>
+                        <br/>
+                        <span style="color:cornflowerblue">@c.Value</span> 
+                        </li>
+                  }
+            </ul>
+            </div>
+
+        <div class="product-container">           
+           <ul>
+                <li>
+                    <strong>Session ID:</strong>
+                    <br/>
+                    <span style="color: lightseagreen"> @ViewBag.sessionID</span>                   
+                </li>
+
+                <li>
+                    <strong>User Name:</strong>
+                    <br/>
+                    <span style ="color: lightseagreen">@ViewBag.sessionUserName</span>
+                    
+                </li>
+           </ul>
+        </div>
+        
+    </fieldset>
+    </body>
+</html>

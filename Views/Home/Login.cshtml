@@ -1,0 +1,159 @@
+﻿@model CPIS_358_project.Models.User
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Log in</title>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/project_style.css">
+    <script src="scripts.js"></script>
+
+    <style>
+        /* the text that are inside the buttons */
+        nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* the outside look of the links */
+        nav button {
+            padding: 8px 15px;
+            background-color: #cfa382;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            /* when we point the mouse in the link */
+            nav button:hover {
+                background-color: #fffcf9;
+            }
+
+        /* a button that takes you to a new page which is store page when we submit our sign up */
+        #storeBtn {
+            display: none;
+            /* we make the button hidden untill we call it from js when we submit */
+            margin-top: 15px;
+            padding: 12px 25px;
+            background-color: #cfa382;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            /* when we point to the box */
+            #storeBtn:hover {
+                background-color: #fffcf9;
+            }
+
+            #storeBtn a {
+                text-decoration: none;
+                color: black;
+                font-size: 18px;
+                font-weight: bold;
+            }
+    </style>
+
+    <script>
+        function validateLogin() {
+            // here we create vars
+            // then assign the value of the specific form and names in the forms to them
+            var mail = document.forms["loginForm"]["UserE"].value;
+            var pass = document.forms["loginForm"]["UserP"].value;
+
+            // we see if user didnt enter anything in one of the fields
+            if (mail == "" || pass == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+
+            //here we call the functions that are in the
+            //external scripts file and pass it the var that
+            //we defined on top if its not the right validation
+            //it will not submit form
+            if (!validateEmail(mail)) return false;
+            if (!validatePassword(pass)) return false;
+
+            //if everything is correct a message will appear
+            //alert("login is successful");
+
+            //here we make the button appears we call the disply and give it inlin block beacuse
+            //it was display none in the styling
+            document.getElementById("storeBtn").style.display = "inline-block";
+            return true;//this will prevent the page to lose all the info after the user press submit
+        }
+    </script>
+
+</head>
+
+
+<body>
+
+    <img src="/images/logo.png" usemap="#projectmap" class="project-logo">
+    <map name="projectmap">
+        <area shape="rect" coords="0,0,200,200" href="/Home/Index" alt="about.html">
+    </map>
+
+    <main>
+
+        <h2 style="color: rgb(2, 1, 1); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:italic;">Log in please:</h2>
+
+        <form name="loginForm" method="post" asp-action="Login" asp-controller="Home" onsubmit="return validateLogin()">
+
+            @if (ViewBag.Error != null)
+            {
+                <div style="color:red">@ViewBag.Error</div>
+            }
+
+            <div>
+                <label>
+                    Email:
+                    <input asp-for="UserE" type="email" name="UserE" placeholder="yourEmail@domain.com" required>
+                    <span asp-validation-for="UserE" style="color:red"></span>
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    Password:
+                    <input asp-for="UserP" type="password" name="UserP" placeholder="**********" required>
+                    <span asp-validation-for="UserP" style="color:red"></span>
+                </label>
+            </div>
+
+            <input type="submit" value="Log In">
+            <input type="reset" value="Reset">
+            <input type="button" value="Forgot Password?" onclick="location.href='/Home/ForgotPassword'">
+
+        </form>
+
+        <a href="/Home/Store" class="nav-btn" id="storeBtn">Go to Store</a>
+
+        <div>
+            <h3><strong>Don't have an account?</strong></h3>
+            <h4>Sign up here</h4>
+            <a href="/Home/Signup" class="secondary-button">Sign up</a>
+
+        </div>
+
+    </main>
+
+    <br>
+
+    <footer>
+        <nav>
+            <a href="/Home/Index" class="nav-btn">Home Page</a> |
+            <a href="/Home/Productinfo" class="nav-btn">Product Info Page</a> |
+            <a href="/Home/Contact" class="nav-btn">Contact Us</a> |
+            <a href="/Home/About" class="nav-btn">About Us</a> |
+            <a href="/Account/Index" class="nav-btn">Account</a>
+        </nav>
+    </footer>
+
+</body>
+
+</html>

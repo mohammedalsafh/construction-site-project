@@ -1,0 +1,200 @@
+﻿@model CPIS_358_project.Models.User
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sign Up</title>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/project_style.css">
+    <script src="~/js/scripts.js"></script>
+
+    <style>
+        /* the text that are inside the buttons */
+        nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* the outside look of the links */
+        nav button {
+            padding: 8px 15px;
+            background-color: #cfa382;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            /* when we point the mouse in the link */
+            nav button:hover {
+                background-color: #fffcf9;
+            }
+
+        /* a button that takes you to a new page which is store page when we submit our sign up */
+        #storeBtn {
+            display: none;
+            /* we make the button hidden untill we call it from js when we submit */
+            margin-top: 15px;
+            padding: 12px 25px;
+            background-color: #cfa382;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            /* when we point to the box */
+            #storeBtn:hover {
+                background-color: #fffcf9;
+            }
+
+            #storeBtn a {
+                text-decoration: none;
+                color: black;
+                font-size: 18px;
+                font-weight: bold;
+            }
+    </style>
+
+    <script>
+        function validateForm() {
+            // here we create vars
+            // then assign the value of the specific form and names in the forms to them
+            var name = document.forms["signUpForm"]["FullName"].value;
+            var phone = document.forms["signUpForm"]["PhoneNumber"].value;
+            var mil = document.forms["signUpForm"]["UserE"].value;
+            var pass = document.forms["signUpForm"]["UserP"].value;
+
+            // we see if user didnt enter anything in one of the fields
+            if (name == "" || phone == "" || mil == "" || pass == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+
+            // we make a rule that we need firstname_lastname and it has to be letters only
+            /*
+           to undrestand .test and the following 2 lines more, now firstly (name) will have the value that we assigned from above
+           which is the value of the FullName from the forms, secondly the .test compares both of the
+           of name pattern and the
+           namepatter var we gave a specific pattern to, then the .test if they match will result true if not will result false
+           if the result was false they dont match the "!"
+           will turn the value to true which will cause entering the if statment
+           and send the alert message
+            */
+            var namePattern = /^[A-Za-z]+ [A-Za-z]+$/;
+            if (!namePattern.test(name)) {
+                alert("accepts only letter and the full name need to have the first and last name and between them 1 empty space.");
+                return false;//if the return was false the function will return false and the onsubmit will not work meaning the form will not submit
+            }
+
+            // we check if its the correct pattern
+            //.start with check if the string we have start with the given pattren or not
+            if (!phone.startsWith("966-5")) {
+                alert("the phone number need to start with 966-5");
+                return false;
+            }
+
+            //here we call the functions that are in the
+            //external scripts file and pass it the var that
+            //we defined on top if its not the right validation
+            //it will not submit form
+            if (!validateEmail(mil)) return false;
+            if (!validatePassword(pass)) return false;
+
+            //if everything is correct a message will appear
+            //alert("account is created succsessfully");
+
+            //here we make the button appears we call the disply and give it inlin block beacuse
+            //it was display none in the styling
+            document.getElementById("storeBtn").style.display = "inline-block";
+
+            return true;//this will prevent the page to lose all the info after the user press submit
+        }
+    </script>
+
+</head>
+
+
+<body>
+
+    <img src="/images/logo.png" usemap="#projectmap" class="project-logo">
+    <map name="projectmap">
+        <area shape="rect" coords="0,0,200,200" href="/Home/Index" alt="about.html">
+    </map>
+
+    <main>
+        <h2 style="color: rgb(2, 1, 1); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:italic;">Create Your Account</h2>
+
+        <form name="signUpForm" method="post" asp-action="Signup" asp-controller="Home" onsubmit="return validateForm()">
+
+            <div asp-validation-summary="ModelOnly" style="color:red"></div>
+
+            <div>
+                <label>
+                    Full Name:
+                    <input asp-for="FullName" type="text" name="FullName" placeholder="folan alfolani" required>
+                    <span asp-validation-for="FullName" style="color:red"></span>
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    Phone Number:
+                    <input asp-for="PhoneNumber" type="tel" name="PhoneNumber" placeholder="966-5x-xxx-xxxx"
+                           pattern="966-5[0-9]-[0-9]{3}-[0-9]{4}" required>
+                    <span asp-validation-for="PhoneNumber" style="color:red"></span>
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    Email:
+                    <input asp-for="UserE" type="email" name="UserE" placeholder="yourEmail@domain" required>
+                    <span asp-validation-for="UserE" style="color:red"></span>
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    Password:
+                    <input asp-for="UserP" type="password" name="UserP" placeholder="**********" required>
+                    <span asp-validation-for="UserP" style="color:red"></span>
+                </label>
+            </div>
+
+            <div>
+                <input type="submit"
+                       value="submit">
+                <input type="reset" value="reset">
+
+                <p>
+                    Already have an account?
+                </p>
+                <a href="/Home/Login" class="secondary-button">Log In</a>
+            </div>
+
+        </form>
+
+        <a href="/Home/Store" class="nav-btn" id="storeBtn">Go to Store</a>
+
+
+    </main>
+
+    <br>
+
+
+    <footer>
+        <nav>
+            <a href="/Home/Index" class="nav-btn">Home Page</a> |
+            <a href="/Home/Productinfo" class="nav-btn">Product Info Page</a> |
+            <a href="/Home/Contact" class="nav-btn">Contact Us</a> |
+            <a href="/Home/About" class="nav-btn">About Us</a> |
+            <a href="/Account/Index" class="nav-btn">Account</a>
+        </nav>
+    </footer>
+
+</body>
+
+</html>
