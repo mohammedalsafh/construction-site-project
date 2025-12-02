@@ -9,7 +9,16 @@ namespace CPIS_358_project.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                SetCookies("userName", User.Identity.Name);
+            }
+            else
+            {
+                SetCookies("userName", "guest");
+            }
+
+                return View();
         }
 
         public IActionResult About()
@@ -17,25 +26,25 @@ namespace CPIS_358_project.Controllers
             return View();
         }
 
-       
+
         public IActionResult ProductInfo()
         {
             return View();
         }
 
-        
+
         public IActionResult Services()
         {
             return View();
         }
 
-        
+
         public IActionResult Contact()
         {
             return View();
         }
 
-        
+
         public IActionResult Login()
         {
             return View();
@@ -57,22 +66,35 @@ namespace CPIS_358_project.Controllers
 
             return RedirectToAction(nameof(Store));
         }
-        
+
         public IActionResult ForgotPassword()
         {
             return View();
         }
 
-       
+
         public IActionResult Store()
         {
             return View();
         }
 
-        
+
         public IActionResult Payment()
         {
             return View();
+        }
+
+        //setting up cookies
+        public IActionResult SetCookies(string cookieName, string cookieValue)
+        {
+            CookieOptions options = new CookieOptions
+            {
+                Expires = DateTime.Now.AddDays(1),
+                HttpOnly = true,
+                Secure = true,
+            };
+            Response.Cookies.Append(cookieName, cookieValue);
+            return Ok();
         }
     }
 }

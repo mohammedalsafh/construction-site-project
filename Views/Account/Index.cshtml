@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Account";
+    var cookies = Context.Request.Cookies;
+}
+<html>
+    <head>
+    <link rel="stylesheet" href="~/css/project_style.css">
+    </head>
+    <body>
+<div>
+    <h1>
+        Account Information
+    </h1>
+    <feildset>
+        <h5>Cookie Values</h5>
+        <ul>
+            @foreach(var c in cookies)
+            {
+                <li>@c.Key : @c.Value</li>
+            }
+        </ul>
+    </feildset>
+</div>
+</body>
+</html>

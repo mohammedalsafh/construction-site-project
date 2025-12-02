@@ -14,7 +14,7 @@ namespace CPIS_358_project
 
             builder.Services.AddDbContext<CPIS_358_projectContext>(options => options.UseSqlServer(connectionString));
 
-            builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<CPIS_358_projectContext>();
+            builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<CPIS_358_projectContext>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
