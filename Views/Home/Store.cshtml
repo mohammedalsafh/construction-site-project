@@ -1,7 +1,5 @@
 ﻿
-@{
-    Layout = null;
-}
+
 <!DOCTYPE html>
 
 <html>
@@ -35,24 +33,14 @@
         <area shape="rect" coords="0,0,200,200" href="/Home/Index" alt="about.html">
     </map>
 
-    <header>
-        <div>
-            <nav>
-                <a href="/Home/Index" class="nav-btn">Home Page</a> |
-                <a href="/Home/Login" class="nav-btn">Log In</a> |
-                <a href="/Home/Signup" class="nav-btn">Sign Up</a> |
-                <a href="/Home/Store" class="nav-btn">Store</a> |
-                <a href="#commentsSection" class="nav-btn">Go to Comments</a><!--internal links that takes u down to the comment section-->
-            </nav>
-        </div>
-    </header>
-
-    <br>
+   
+    
 
     <main>
         <!--bar which contains the filters for the products and the store and cart sections where users can can click the (show store) or (show cart) button-->
         <div class="bar">
             <nav>
+                <a href ="#commentsSection" class="nav-btn">Go to Comments</a><!--internal links that takes u down to the comment section-->
                 <button onclick="showPage('store-section')">Show Store</button>
                 <button onclick="showPage('cart-section')">Show Cart</button>
             </nav>
