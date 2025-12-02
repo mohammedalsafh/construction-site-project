@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-
+using CPIS_358_project.Models;
 namespace CPIS_358_project.Areas.Identity.Data;
 
-public class CPIS_358_projectContext : IdentityDbContext<IdentityUser>
+public class CPIS_358_projectContext : IdentityDbContext<User>
 {
     public CPIS_358_projectContext(DbContextOptions<CPIS_358_projectContext> options)
         : base(options)

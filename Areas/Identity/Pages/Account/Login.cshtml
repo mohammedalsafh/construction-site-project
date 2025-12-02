@@ -5,79 +5,109 @@
     ViewData["Title"] = "Log in";
 }
 
-<h1>@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-4">
-        <section>
-            <form id="account" method="post">
-                <h2>Use a local account to log in.</h2>
-                <hr />
-                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                    <label asp-for="Input.Email" class="form-label">Email</label>
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
-                    <label asp-for="Input.Password" class="form-label">Password</label>
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="checkbox mb-3">
-                    <label asp-for="Input.RememberMe" class="form-label">
-                        <input class="form-check-input" asp-for="Input.RememberMe" />
-                        @Html.DisplayNameFor(m => m.Input.RememberMe)
-                    </label>
-                </div>
-                <div>
-                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
-                </div>
-                <div>
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </p>
-                    <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                    </p>
-                </div>
-            </form>
-        </section>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Use another service to log in.</h3>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                            about setting up this ASP.NET application to support logging in via external services</a>.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins!)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
-    </div>
-</div>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/project_style.css">
+    <script src="scripts.js"></script>
 
+    <style>
+        /* the text that are inside the buttons */
+        nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* the outside look of the links */
+        nav button {
+            padding: 8px 15px;
+            background-color: #cfa382;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            /* when we point the mouse in the link */
+            nav button:hover {
+                background-color: #fffcf9;
+            }
+
+        /* a button that takes you to a new page which is store page when we submit our sign up */
+        #storeBtn {
+            display: none; /* we make the button hidden untill we call it from js when we submit */
+            margin-top: 15px;
+            padding: 12px 25px;
+            background-color: #cfa382;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            /* when we point to the box */
+            #storeBtn:hover {
+                background-color: #fffcf9;
+            }
+
+            #storeBtn a {
+                text-decoration: none;
+                color: black;
+                font-size: 18px;
+                font-weight: bold;
+            }
+    </style>
+</head>
+<body>
+    <!--logo bottom right-->
+    <!-- the picture we will use with the usemape as a pointer to the map name -->
+    <img src="/images/logo.png" usemap="#projectmap" class="project-logo">
+    <map name="projectmap">
+        <!--we were asked in the assigment word file to use mapping and pic mapping-->
+        <!-- map basicly create a clickable region for an image-->
+        <!-- area defins the looks and place of the reagion and if the region is clicked where does it take us -->
+        <area shape="rect" coords="0,0,200,200" href="/Home/Index" alt="about.html">
+    </map>
+
+    <main>
+
+        <h2 style="color: rgb(2, 1, 1); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:italic;">Log in please:</h2>
+
+        <!--when the user press on submit it will return the value of to see if form is accepted or not the function we did in the scripts-->
+        <form name="loginForm" method="post" action="">
+
+            <div>
+                <label>
+                    Email:
+                    <input asp-for="Input.Email" placeholder="yourEmail@domain.com" required>
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    Password:
+                    <input asp-for="Input.Password" placeholder="**********" required>
+                </label>
+            </div>
+
+            <input type="submit" value="Log In">
+            <input type="reset" value="Reset">
+            <input type="button" value="Forgot Password?">
+
+        </form>
+
+        <!--a button that will appear after the validation happens and it works-->
+
+        <a href="/Home/Store" class="nav-btn" id="storeBtn">Go to Store</a>
+
+        <!--a button if the user dont have account yet it will take them to the sign up page-->
+        <div>
+            <h3><strong>Don't have an account?</strong></h3>
+            <h4>Sign up here</h4>
+            <a href="/Home/Signup" class="secondary-button">Sign up</a>
+        </div>
+
+    </main>
+
+    <br>
+</body>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

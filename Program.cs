@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CPIS_358_project.Areas.Identity.Data;
+using CPIS_358_project.Models;
 
 namespace CPIS_358_project
 {
@@ -13,11 +14,11 @@ namespace CPIS_358_project
 
             builder.Services.AddDbContext<CPIS_358_projectContext>(options => options.UseSqlServer(connectionString));
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<CPIS_358_projectContext>();
+            builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<CPIS_358_projectContext>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-           
+            builder.Services.AddRazorPages(); 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -38,7 +39,7 @@ namespace CPIS_358_project
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}")
                 .WithStaticAssets();
-
+            app.MapRazorPages();
             app.Run();
         }
     }

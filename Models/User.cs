@@ -1,10 +1,10 @@
-﻿namespace CPIS_358_project.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace CPIS_358_project.Models
 {
-    public class User
+    public class User : IdentityUser
     {
         public required string FullName { get; set; }
-        public required string UserE { get; set; }
-        public required string Password { get; set; }
-        public required string Phone { get; set; }
+        
     }
 }

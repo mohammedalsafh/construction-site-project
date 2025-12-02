@@ -49,7 +49,7 @@ namespace CPIS_358_project.Controllers
         [HttpPost]
         public IActionResult SignUp(User user)
         {
-            if (String.IsNullOrEmpty(user.FullName) || String.IsNullOrEmpty(user.UserE))
+            if (String.IsNullOrEmpty(user.FullName) || String.IsNullOrEmpty(user.Email))
             {
                 return View();
             }
