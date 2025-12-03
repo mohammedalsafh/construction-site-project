@@ -1,0 +1,478 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Store - Products</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/project_style.css">
+    <!--simple embedded styling for the header div which has the links to the other pages of the store and an internal link to the comment section-->
+    <style>
+        header div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+    </style>
+    <script src="~/js/scripts.js"></script>
+</head>
+
+
+<body id="top">
+
+    <!--logo bottom right-->
+    <!-- the picture we will use with the usemape as a pointer to the map name -->
+    <img src="/images/logo.png" usemap="#projectmap" class="project-logo">
+    <map name="projectmap">
+        <!--we were asked in the assigment word file to use mapping and pic mapping-->
+        <!-- map basicly create a clickable region for an image-->
+        <!-- area defins the looks and place of the reagion and if the region is clicked where does it take us -->
+        <area shape="rect" coords="0,0,200,200" href="/Home/Index" alt="about.html">
+    </map>
+
+   
+    
+
+    <main>
+        <!--bar which contains the filters for the products and the store and cart sections where users can can click the (show store) or (show cart) button-->
+        <div class="bar">
+            <nav>
+                <a href ="#commentsSection" class="nav-btn">Go to Comments</a><!--internal links that takes u down to the comment section-->
+                <button onclick="showPage('store-section')">Show Store</button>
+                <button onclick="showPage('cart-section')">Show Cart</button>
+            </nav>
+            <!--store filters-->
+            <aside class="store-filters">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a onclick="filterProducts('all')">All Products</a></li>
+                    <li><a onclick="filterProducts('raw-materials')">Raw Materials</a></li>
+                    <li><a onclick="filterProducts('ready-made')">Ready-Made Rooms</a></li>
+                    <li><a onclick="filterProducts('electronics')">Electronics</a></li>
+                    <li><a onclick="filterProducts('smart-home')">Smart-Home Equipment</a></li>
+                    <li><a href="Services.html">Services</a></li>
+                </ul>
+            </aside>
+        </div>
+
+        <fieldset>
+            <!--The store sectionn of the page-->
+            <section id="store-section">
+                <!--porduct container that houses all of the product items-->
+                <div>
+                    <div class="product-container">
+
+                        <div class="product-item raw-materials">
+                            <img src="/images/cement.jpeg" id="product-img-1"><!-- the first image id-->
+                            <h4> Premium Cement (50kg)</h4>
+                            <p> 12.99SR</p>
+
+                            <div class="image-options">
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-1', '/images/cement.jpeg')">
+                                    View 1
+                                </button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-1', '/images/cement2.jpg')">
+                                    View 2
+                                </button>
+                                <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+                            </div>
+                            <!-- button that onclick will call the function addToCart the parameter for this method are (productID, productName, productPrice, productImageSrc)-->
+                            <button onclick="addToCart('prod-cement','Premium Cement (50kg)' , 12.99,'/images/cement.jpeg')">Add to Cart</button>
+                        </div>
+
+                        <div class="product-item raw-materials">
+                            <img src="/images/red-bricks.jpg" id="product-img-2"><!-- the first image id-->
+                            <h4> Red Bricks (per piece)</h4>
+                            <p> 0.75SR </p>
+
+                            <div class="image-options">
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-2', '/images/red-bricks.jpg')">
+                                    View 1
+                                </button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-2', '/images/brick2.jpg')">
+                                    View 2
+                                </button>
+                                <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
+                            </div>
+                            <!-- button that onclick will call the function addToCart the parameter for this method are (productID, productName, productPrice, productImageSrc)-->
+                            <button onclick="addToCart('prod-bricks', 'Red Bricks (per piece)', 0.75,'/images/red-bricks.jpg')">Add to Cart</button>
+                        </div>
+
+                        <div class="product-item raw-materials">
+                            <img src="/images/steelbar.jpg" id="product-img-3"><!-- the first image id-->
+                            <h4> Steel Bar </h4>
+                            <p>200SR</p>
+
+                            <div class="image-options">
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-3', '/images/steelbar.jpg')">
+                                    View 1
+                                </button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-3', '/images/steel2.webp')">
+                                    View 2
+                                </button>
+                                <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
+                            </div>
+                            <!-- button that onclick will call the function addToCart the parameter for this method are (productID, productName, productPrice, productImageSrc)-->
+                            <button onclick="addToCart('prod-steel','Steel Bar',200,'/images/steelbar.jpg')">
+                                Add to
+                                Cart
+                            </button>
+                        </div>
+
+                        <div class="product-item ready-made">
+                            <img src="/images/livingRoom.jpg" alt="Living room picture" id="product-img-4"><!-- the first image id-->
+                            <h4> Modern Living Room Set</h4>
+                            <p> 4999.99SR</p>
+
+                            <div class="image-options">
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-4', /images/livingRoom.jpg')">
+                                    View 1
+                                </button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-4', '/images/living2.jpeg')">
+                                    View 2
+                                </button>
+                                <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
+                            </div>
+                            <!-- button that onclick will call the function addToCart the parameter for this method are (productID, productName, productPrice, productImageSrc)-->
+                            <button onclick="addToCart('prod-livingroom', 'Modern Living Room Set', 4999.99,'/images/livingRoom.jpg')">
+                                Add
+                                to Cart
+                            </button>
+                        </div>
+
+                        <div class="product-item ready-made">
+                            <img src="/images/bedroom.jpeg" alt="Bedroom picture" id="product-img-5"><!-- the first image id-->
+                            <h4> Cozy Bedroom Set</h4>
+                            <p> 3999.99SR </p>
+                            <div class="image-options">
+
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-5', '/images/bedroom.jpeg')">
+                                    View 1
+                                </button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-5', '/images/bed2.jpg')">
+                                    View 2
+                                </button>
+                                <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
+                            </div>
+                            <!-- button that onclick will call the function addToCart the parameter for this method are (productID, productName, productPrice, productImageSrc)-->
+                            <button onclick="addToCart('prod-bedroom','Cozy Bedroom Set',3999.99,'/images/bedroom.jpeg')">
+                                Add to
+                                Cart
+                            </button>
+                        </div>
+
+                        <div class="product-item ready-made">
+                            <img src="/images/kitchen.avif" alt="Kitchen picture" id="product-img-6"><!-- the first image id-->
+                            <h4> Contemporary Kitchen Set</h4>
+                            <p> 5999.99SR </p>
+                            <div class="image-options">
+
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-6', '/images/kitchen.avif')">
+                                    View 1
+                                </button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-6', '/images/kitchen2.jpg')">
+                                    View 2
+                                </button>
+                            </div>
+                            <!-- button that onclick will call the function addToCart the parameter for this method are (productID, productName, productPrice, productImageSrc)-->
+                            <button onclick="addToCart('prod-kitchen','Contemporary Kitchen Set',5999.99,'/images/kitchen.avif')">
+                                Add
+                                to Cart
+                            </button>
+                        </div>
+
+                        <div class="product-item ready-made">
+                            <img src="/images/bathroom.avif" id="product-img-7"><!-- the first image id-->
+                            <h4> Elegant Bathroom Set</h4>
+                            <p> 2999.99SR </p>
+
+                            <div class="image-options">
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-7', '/images/bathroom.avif')">
+                                    View 1
+                                </button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-7', '/images/bath2.webp')">
+                                    View 2
+                                </button>
+                                <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
+                            </div>
+                            <!-- button that onclick will call the function addToCart the parameter for this method are (productID, productName, productPrice, productImageSrc)-->
+                            <button onclick="addToCart('prod-bathroom','Elegant Bathroom Set',2999.99,'/images/bathroom.avif')">
+                                Add
+                                to Cart
+                            </button>
+                        </div>
+                        <div class="product-item electronics">
+                            <img src="/images/conduits.jpg" alt="Electrical conduits" id="product-img-8"><!-- the first image id-->
+                            <h4> Electrical Conduits (per meter)</h4>
+                            <p> 5.50SR </p>
+
+                            <div class="image-options">
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-8', '/images/conduits.jpg')">
+                                    View 1
+                                </button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-8', '/images/elec2.webp')">
+                                    View 2
+                                </button>
+                                <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
+                            </div>
+                            <!-- button that onclick will call the function addToCart the parameter for this method are (productID, productName, productPrice, productImageSrc)-->
+                            <button onclick="addToCart('prod-conduit', 'Electrical Conduits (per meter)',5.50,'/images/conduits.jpg')">
+                                Add
+                                to Cart
+                            </button>
+                        </div>
+
+                        <div class="product-item electronics">
+                            <img src="/images/fusebox.jpg" alt="Fuse box" id="product-img-9"><!-- the first image id-->
+                            <h4> Fuse Box</h4>
+                            <p> 299.99SR </p>
+
+                            <div class="image-options">
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-9', '/images/fusebox.jpg')">
+                                    View 1
+                                </button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-9', '/images/fuse2.jpg')">
+                                    View 2
+                                </button>
+                                <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
+                            </div>
+                            <!-- button that onclick will call the function addToCart the parameter for this method are (productID, productName, productPrice, productImageSrc)-->
+                            <button onclick="addToCart('prod-fusebox','Fuse Box',299.99,'/images/fusebox.jpg')">
+                                Add to
+                                Cart
+                            </button>
+                        </div>
+
+                        <div class="product-item electronics">
+                            <img src="/images/wiring.jpg" alt="Electrical wiring rolls" id="product-img-10"><!-- the first image id-->
+                            <h4> Electrical Wiring Roll (100m)</h4>
+                            <p> 149.99SR </p>
+
+                            <div class="image-options">
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-10', '/images/wiring.jpg')">
+                                    View 1
+                                </button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-10', '/images/wire2.jpg')">
+                                    View 2
+                                </button>
+                                <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
+                            </div>
+                            <!-- button that onclick will call the function addToCart the parameter for this method are (productID, productName, productPrice, productImageSrc)-->
+                            <button onclick="addToCart('prod-wiring', 'Electrical Wiring Roll',149.99,'/images/wiring.jpg')">
+                                Add
+                                to Cart
+                            </button>
+                        </div>
+                        <div class="product-item smart-home">
+                            <img src="/images/smart speakers.jpg" alt="smart speakers picture" id="product-img-11"><!-- the first image id-->
+                            <h4> Smart Speakers</h4>
+                            <p> 100SR</p>
+
+                            <div class="image-options">
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-11', '/images/smart speakers.jpg')">
+                                    View1
+                                </button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-11', '/images/speaker2.webp')">
+                                    View 2
+                                </button>
+                                <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
+                            </div>
+                            <!-- button that onclick will call the function addToCart the parameter for this method are (productID, productName, productPrice, productImageSrc)-->
+                            <button onclick="addToCart('prod-speaker', 'Smart Speakers',100,'/images/smart speakers.jpg')">
+                                Add
+                                to Cart
+                            </button>
+                        </div>
+
+                        <div class="product-item smart-home">
+                            <img src="/images/Led.jpg" alt="smart lights picture" id="product-img-12"><!-- the first image id-->
+                            <h4> Smart LED Lights</h4>
+                            <p> 75SR </p>
+
+                            <div class="image-options">
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-12', '/images/Led.jpg')">
+                                    View 1
+                                </button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-12', '/images/led2.jpg')">
+                                    View 2
+                                </button>
+                                <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
+                            </div>
+                            <!-- button that onclick will call the function addToCart the parameter for this method are (productID, productName, productPrice, productImageSrc)-->
+                            <button onclick="addToCart('prod-led', 'Smart LED Lights',75,'/images/Led.jpg')">
+                                Add to
+                                Cart
+                            </button>
+                        </div>
+
+                        <div class="product-item smart-home">
+                            <img src="/images/smartDoorKnob.jpg" alt="Smart doorknob picture" id="product-img-13"><!-- the first image id-->
+                            <h4> Smart Door Knob</h4>
+                            <p> 250SR </p>
+
+                            <div class="image-options">
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-13', '/images/smartDoorKnob.jpg')">
+                                    View 1
+                                </button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-13', '/images/door2.jpg')">
+                                    View 2
+                                </button>
+                                <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
+                            </div>
+                            <!-- button that onclick will call the function addToCart the parameter for this method are (productID, productName, productPrice, productImageSrc)-->
+                            <button onclick="addToCart('prod-knob','Smart Door Knob',250,'/images/smartDoorKnob.jpg')">
+                                Add to
+                                Cart
+                            </button>
+                        </div>
+
+                        <div class="product-item smart-home">
+                            <img src="/images/intercom.webp" alt="Smart intercom picture" id="product-img-14"><!-- the first image id-->
+                            <h4> Smart Intercom System</h4>
+                            <p> 300SR </p>
+
+                            <div class="image-options">
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-14', '/images/intercom.webp')">
+                                    View 1
+                                </button><!--we use the fuction from external javascript-->
+                                <!--(the main image, the new image) since the main and new are the same if we press the button nothing change-->
+                                <button class="dynamic-pic-btn"
+                                        onclick="changeProductImage('product-img-14', '/images/enter2.png')">
+                                    View 2
+                                </button>
+                                <!--(the main image, the new image) since they are diff the main image will take the src of the new image and the image will change-->
+
+                            </div>
+                            <!-- button that onclick will call the function addToCart the parameter for this method are (productID, productName, productPrice, productImageSrc)-->
+                            <button onclick="addToCart('prod-intercom', 'Smart Intercom System',300,'/images/intercom.webp')">
+                                Add to
+                                Cart
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!--cart section which is always hidden unless user clicks the show cart button or add an item to the cart-->
+            <div id="cart-section" style="display: none;">
+                <h2>Your Shopping Cart</h2>
+                <!--cart table that will be used to add items dynamically throught javaScript-->
+                <table class="cart" id="cart-table">
+                    <thead>
+                        <tr>
+
+                            <th>Product Image</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+
+                        </tr>
+                    </thead>
+                    <!--all the products add to the cart will be added here-->
+                    <tbody id="cart-body">
+                    </tbody>
+                    <!--tfoot is used to display the total price of cart, the price is calculated and added to the tfoot dynamically-->
+                    <tfoot id="cart-foot">
+                        <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Total:</strong></td>
+                    <td id="total-cell" style="text-align: right;">0.00 SR</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <!--button that takes the user to the payment-->
+                <div id="payment-button-container" style="text-align:center; margin-top:20px;">
+                </div>
+            </div>
+        </fieldset>
+
+
+    </main>
+
+
+
+<footer>
+    <div>
+        <nav>
+            <a href="/Home/About" class="nav-btn">About Us</a> |
+            <a href="/Home/Contact"class="nav-btn">Contact Us</a>
+        </nav>
+    </div>
+</footer>
+
+<!-- comment section using textarea-->
+<section id="commentsSection">
+    <h2>Leave a Comment</h2>
+
+    <form>
+        <textarea name="comment" rows="5" cols="60" placeholder="Write your comment here..."></textarea>
+        <br>
+        <input type="submit" value="Submit Comment">
+    </form>
+
+    <!-- internal link button that takes you to the top-->
+    <nav>
+        <a href="#top" class="nav-btn">
+            Back to Top
+        </a>
+    </nav>
+
+</section>
+</body>
+
+
+</html>

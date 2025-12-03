@@ -1,0 +1,87 @@
+﻿@model CPIS_358_project.Models.Services
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<link rel="stylesheet" href="~/css/project_style.css">
+
+<style>
+    main {
+        margin-top: 90px;
+    }
+
+    fieldset {
+        background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .form-container {
+        display: inline-block;
+        text-align: left;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        border: 1px solid #cfa382;
+    }
+
+        .form-control:focus {
+            border-color: #c46a25;
+            box-shadow: 0 0 0 0.25rem rgba(196, 106, 37, 0.25);
+        }
+</style>
+
+<main>
+    <h1 style="color: rgb(2, 1, 1); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:italic;">Add New Service</h1>
+
+    <h4 style="color: #412323;">Enter Service Details</h4>
+    <hr style="border-top: 2px solid #c46a25; width: 50%; margin: auto; margin-bottom: 20px;" />
+
+    <div class="row justify-content-center">
+        <div class="col-md-5" style="margin: auto;">
+
+            <fieldset>
+                <div class="form-container">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Name" class="control-label" style="font-weight: bold; color: #412323;"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Profession" class="control-label" style="font-weight: bold; color: #412323;"></label>
+                            <input asp-for="Profession" class="form-control" />
+                            <span asp-validation-for="Profession" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="yearsOfExperience" class="control-label" style="font-weight: bold; color: #412323;">Years of Experience</label>
+                            <input asp-for="yearsOfExperience" class="form-control" style="width: 100%; text-align: left;" />
+                            <span asp-validation-for="yearsOfExperience" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group" style="text-align: center; margin-top: 20px;">
+                            <input type="submit" value="Create" class="nav-btn" style="width: 100%; font-weight: bold;" />
+                        </div>
+                    </form>
+                </div>
+            </fieldset>
+
+        </div>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <a asp-action="Index" class="secondary-button">Back to List</a>
+    </div>
+</main>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
