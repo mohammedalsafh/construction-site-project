@@ -9,15 +9,18 @@ namespace CPIS_358_project.Controllers
     {
         public IActionResult Index()//this is the function that runs when someone visits the home page
         {
+            SetSession("id", Guid.NewGuid().ToString());
             if (User.Identity.IsAuthenticated)//this will check if the user is currently logged in
             {
                 SetCookies("userName", User.Identity.Name);//if they are then we save their name in a cookie so we remember them
+                SetSession("username", User.Identity.Name);//calling the method to set session values if they are logged in.
             }
             else// if they are not logged in
             {
                 SetCookies("userName", "guest");//then we just save them as a guest in the cookies
+                SetSession("username", "guest");
             }
-
+            SetCookies("browserName", Request.Headers["User-Agent"].ToString()); // gets the browser information
             return View();//this will show the home page view to the user
         }
 
@@ -75,14 +78,17 @@ namespace CPIS_358_project.Controllers
 
         public IActionResult Store()//this function will handles the request for the store page
         {
+            SetSession("id", Guid.NewGuid().ToString());
             if (User.Identity.IsAuthenticated)
             {
                
                 SetCookies("userName", User.Identity.Name);
+                SetSession("username", User.Identity.Name);
             }
             else
             {
                 SetCookies("userName", "guest");
+                SetSession("username", "guest");
             }
             return View();//this will return the store page view
         }
@@ -104,6 +110,12 @@ namespace CPIS_358_project.Controllers
             };
             Response.Cookies.Append(cookieName, cookieValue);//adding the cookie to the response so the browser saves it
             return Ok();//return ok status to say that the cookie was set successfully
+        }
+
+        public IActionResult SetSession(string key, string value)
+        {
+            HttpContext.Session.SetString(key, value);
+            return RedirectToAction("Index");
         }
     }
 }

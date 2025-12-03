@@ -18,6 +18,13 @@ namespace CPIS_358_project
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout =
+                TimeSpan.FromSeconds(300);
+                options.Cookie.IsEssential = true;
+                options.Cookie.SameSite = SameSiteMode.Strict;
+            });
             builder.Services.AddRazorPages(); 
             var app = builder.Build();
 
@@ -31,9 +38,9 @@ namespace CPIS_358_project
 
             app.UseHttpsRedirection();
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseSession();
             app.MapStaticAssets();
             app.MapControllerRoute(
                 name: "default",
