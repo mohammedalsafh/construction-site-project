@@ -1,13 +1,17 @@
 ﻿@model IEnumerable<CPIS_358_project.Models.Services>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Services";
 }
-
-<h1>Index</h1>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/project_style.css">
+</head>
+<h1>Our Services</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
+    <a class="nav-btn" asp-controller="Services" asp-action="SearchForm">Search for a Service</a>
 </p>
 <table class="table">
     <thead>

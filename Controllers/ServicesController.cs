@@ -153,5 +153,20 @@ namespace CPIS_358_project.Controllers
         {
             return _context.Services.Any(e => e.ID == id);
         }
+
+        public async Task<IActionResult> SearchForm()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> SearchResults(string SearchString)
+        {
+            if(_context.Services == null)
+            {
+                return Problem("Entity set 'CPIS-358-project' is null");
+            }
+            var filteredService = await _context.Services.Where(x => x.Profession.Contains(SearchString)).ToListAsync();
+            return View("Index",filteredService);
+        }
     }
 }
