@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Account"; //we set the page title here so the browser tab says Account
+    var cookies = Context.Request.Cookies;//we get the cookies from the browser request so we can display them
+}
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/project_style.css">
+</head>
+<body>
+    <div>
+        <h1>
+            Account Information
+        </h1>
+        <div>
+        <fieldset>
+            <legend>
+               Cookie Values
+            </legend>
+            <ul>
+                @foreach (var c in cookies)//we will go through every cookie we found in the request using a loop
+                {
+                    <li class="mb-2">
+                            <strong>@c.Key</strong>: <span class="text-break">@c.Value</span>
+                        </li>
+                    //we will print out the name and value for each cookie in the list
+                }
+            </ul>
+        </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <legend>
+                    Session Values
+                </legend>
+                <ul>
+                    <li>
+                        <strong>
+                            Session ID: 
+                        </strong>
+                        @ViewBag.sessionID
+                    </li>
+                    <li>
+                        <strong>
+                            User:
+                        </strong>
+                        @ViewBag.sessionUserName
+                    </li>
+                </ul>
+            </fieldset>
+        </div>
+    </div>
+</body>
+</html>
