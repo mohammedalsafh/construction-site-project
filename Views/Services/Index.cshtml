@@ -1,0 +1,129 @@
+﻿@model IEnumerable<CPIS_358_project.Models.Services>
+
+@{
+    ViewData["Title"] = "Services";
+}
+
+<link rel="stylesheet" href="~/css/project_style.css">
+
+<style>
+    main {
+        margin-top: 90px;
+        text-align: center;
+    }
+
+    .cart th {
+        background-color: #cfa382;
+        color: #412323;
+        padding: 15px;
+        text-align: center;
+        border-bottom: 2px solid #c46a25;
+    }
+
+    .cart td {
+        padding: 12px;
+        vertical-align: middle;
+        text-align: center;
+        color: #555;
+    }
+
+    .action-link {
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 5px;
+        transition: color 0.2s;
+    }
+
+    .edit-link {
+        color: black;
+    }
+
+    .details-link {
+        color: black
+    }
+
+    .delete-link {
+        color: #dc3545;
+    }
+
+    .action-link:hover {
+        text-decoration: underline;
+    }
+
+    .top-actions {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .beige-btn {
+        background-color: beige; 
+        color: black; 
+        border: 1px solid #cfa382; 
+        padding: 10px 20px; 
+        border-radius: 5px; 
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+    }
+
+        .beige-btn:hover {
+            background-color: #e8d6cb; 
+            color: black;
+            cursor: pointer;
+        }
+</style>
+
+<main>
+    <h1 style="color: rgb(2, 1, 1); text-shadow: 1px 1px 10px rgb(73, 52, 38); font-style:italic;">Our Services</h1>
+    <hr style="border-top: 2px solid #cfa382; width: 50%; margin: auto; margin-bottom: 30px;" />
+
+    <div class="top-actions">
+        <a asp-action="Create" class="beige-btn">+ Create New Service</a>
+
+        <a asp-controller="Services" asp-action="SearchForm" class="beige-btn">Search for a Service</a>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-10 cart">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Profession)
+                        </th>
+                        <th>
+                            Years of Experience
+                        </th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Profession)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.yearsOfExperience)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.ID" class="action-link edit-link">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.ID" class="action-link details-link">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.ID" class="action-link delete-link">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
