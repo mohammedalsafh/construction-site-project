@@ -1,0 +1,80 @@
+﻿
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Services - Our Services</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/project_style.css">
+    <style>
+        header div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        /*title for the services*/
+       .service-title {
+            font-size: 1.5em; 
+            font-weight: bold;
+            color: rgb(2, 1, 1); 
+            text-shadow: 1px 1px 10px rgb(73, 52, 38); 
+            font-style: italic;
+            padding: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <!--logo bottom right-->
+    <!-- the picture we will use with the usemape as a pointer to the map name -->
+    <img src="/images/logo.png" usemap="#projectmap" class="project-logo">
+    <map name="projectmap">
+        <!--we were asked in the assigment word file to use mapping and pic mapping-->
+        <!-- map basicly create a clickable region for an image-->
+        <!-- area defins the looks and place of the reagion and if the region is clicked where does it take us -->
+        <area shape="rect" coords="0,0,200,200" href="/Home/Index" alt="about.html">
+    </map>
+
+    <main>
+        <section>
+            <fieldset>
+                <legend class="service-title">Our Services</legend>
+                <!--this section has a div(product-container) which is the parent of the div which has the product items-->
+                <div class="product-container">
+                    <div class="product-item">
+                        <img src="/images/person.jpg">
+                        <h4>Plumber</h4>
+                        <h5>Abdullah</h5>
+                        <p>13 years of experience<p>
+                            <button>Hire</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="/images/person.jpg">
+                        <h4>Engineer</h4>
+                        <h5>Mohammed</h5>
+                        <p>8 years of experience<p>
+                            <button>Hire</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="/images/person.jpg">
+                        <h4>Electrical Engineer</h4>
+                        <h5>Ali</h5>
+                        <p>10 years of experience<p>
+                            <button>Hire</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="/images/person.jpg">
+                        <h4>Architect</h4>
+                        <h5>Ahmed</h5>
+                        <p>12 years of experience<p>
+                            <button>Hire</button>
+                    </div>
+                </div>
+            </fieldset>
+        </section>
+    </main>
+</body>
+</html>
